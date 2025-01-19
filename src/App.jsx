@@ -1,8 +1,10 @@
+import {} from './features/theme.css';
+
 import Login from './pages/Login/index'
 
 function App(){
     return (
-        <Login />
+        <Login className="background" />
     );
 }
 

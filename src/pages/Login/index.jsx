@@ -1,4 +1,5 @@
 import {} from './index.css';
+import BrowserTheme from '../../features/theme';
 
 const loginButton = (
     <p>Login</p>
@@ -11,6 +12,9 @@ const signupButton = (
 function Login(){
     return (
         <main>
+            <span class="toggleThemeSwitch">
+                <BrowserTheme />
+            </span>
             {loginButton}
             {signupButton}
         </main>

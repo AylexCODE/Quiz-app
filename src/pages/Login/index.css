@@ -1,9 +1,15 @@
 main {
-    background-color: #123456;
+    background-color: var(--background);
     height: 100dvh;
     width: 100dvw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.toggleThemeSwitch {
+    position: fixed;
+    top: 1dvh;
+    right: 1dvw;
 }

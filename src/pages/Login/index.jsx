@@ -2,7 +2,7 @@ import {} from './index.css';
 
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
-import CustomCheckBox from './../../vendor/components/customCheckBox.module.css';
+import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
 
 import React, { useState } from 'react';
 
@@ -42,9 +42,9 @@ function Login(){
                     <input type="password" className={Border.inputBorder} id="password" onChange={(e) => setPassword(e.target.value)} required />
 
                     <span className="rememberAccount"> 
-                        <label class={CustomCheckBox}>
+                        <label class={CustomCheckBox.custom_checkbox}>
                         <input name="dummy" type="checkbox" id="rememberMe" />
-                        <span class="checkmark"></span>
+                        <span class={CustomCheckBox.checkmark}></span>
                         </label>
                         <label htmlFor="rememberMe">Remember me</label>
                     </span>

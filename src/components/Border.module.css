@@ -1,0 +1,17 @@
+.defaultBorder {
+    border: solid var(--border);
+    border-width: 2px 5px 5px 2px;
+}
+.buttonBorder {
+    border: solid var(--border);
+    border-width: 1px 2px 2px 1px;
+}
+.inputBorder {
+    border: solid var(--border);
+    border-width: 1px 1px 1px 1px;
+}
+.noDesignButton {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}

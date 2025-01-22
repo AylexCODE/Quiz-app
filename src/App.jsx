@@ -1,11 +1,23 @@
-import {} from './features/theme.css';
+import {} from './features/themes/theme.css';
 
-import Login from './pages/Login/index'
+import cookieFunctions from './features/cookie/cookie_manager';
+
+import Signup from './pages/Signup';
+import Login from './pages/Login/index';
+import Home from './pages/Home';
+
+const username = await cookieFunctions.GetCookie();
 
 function App(){
-    return (
-        <Login className="background" />
-    );
+    if(username){
+        return (
+            <Home className="background" />
+        )
+    }else{
+        return (
+            <Login className="background" />
+        );
+    }
 }
 
 export default App;

@@ -13,3 +13,124 @@ main {
     top: 1dvh;
     right: 1dvw;
 }
+
+#form {
+    width: 35dvh;
+    height: 35dvh;
+    padding: 5dvh;
+    min-height: fit-content;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--fontColor);
+}
+
+form > label {
+    text-align: left;
+    margin-top: 2.5dvh;
+    font-size: 12px;
+}
+
+form > input {
+    background-color: transparent;
+    outline: none;
+    padding: 2px;
+    font-size: 12px;
+    color: var(--fontColor);
+}
+
+form > button {
+    position: relative;
+    margin-top: 4dvh;
+    padding-block: .3dvh;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+form > button:active {
+    animation: glitch .2s;
+}
+
+form > label, form > button {
+    font-weight: 500;
+    color: var(--fontColor);
+}
+
+#signup {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--fontColor);
+    margin-top: 1dvh;
+}
+
+#signup > button {
+    font-size: 12px;
+    color: var(--linkColor);
+}
+
+form > h2, #signup {
+    transition: color 0s;
+}
+
+@keyframes glitch {
+    25% {
+      transform: translateX(-10px);
+      letter-spacing: 10px;
+    }
+  
+    35% {
+      transform: translate(10px);
+    }
+  
+    59% {
+      opacity: 0;
+    }
+  
+    60% {
+      transform: translate(-10px);
+      filter: blur(5px);
+    }
+  
+    100% {
+      blur: (5px);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #form {
+        width: 25dvh;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    form > button::before {
+        content: 'Login';
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        color: var(--fontColor);
+        background-color: var(--fontColor);
+        transition: width 250ms, height, 250ms, color 0s;
+        font-weight: 600;
+        overflow: hidden;
+    }
+    
+    form > button:hover::before {
+        width: 100%;
+        height: 100%;
+        color: var(--background);
+        transition: width 250ms, height, 250ms, color 1s;
+    }
+}

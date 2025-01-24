@@ -13,7 +13,7 @@ function Login(){
     const loginHandler = (e) => {
         e.preventDefault();
         
-        if(!username){
+        if(!username || !password){
 
         }
     };
@@ -43,8 +43,8 @@ function Login(){
 
                     <span className="rememberAccount"> 
                         <label class={CustomCheckBox.custom_checkbox}>
-                        <input name="dummy" type="checkbox" id="rememberMe" />
-                        <span class={CustomCheckBox.checkmark}></span>
+                            <input name="dummy" type="checkbox" id="rememberMe" />
+                            <span class={CustomCheckBox.checkmark}></span>
                         </label>
                         <label htmlFor="rememberMe">Remember me</label>
                     </span>

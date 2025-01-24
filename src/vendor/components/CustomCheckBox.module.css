@@ -1,64 +1,65 @@
 /* by KhaledMatalkah */ 
 .custom_checkbox {
+    --rLoginCheckBox_fontSize: .6rem;
+    --rLoginCheckBox_size: .8rem;
     display: inline-flex;
     align-items: center;
-    cursor: pointer;
     user-select: none;
-    font-size: 16px;
-    color: #333;
+    font-size: var(--rLoginCheckBox_fontSize);
+    color: var(--fontColor);
     transition: color 0.3s;
 }
   
-  .custom_checkbox input[type="checkbox"] {
+.custom_checkbox input[type="checkbox"] {
     display: none;
 }
   
-  .custom_checkbox .checkmark {
-    width: 24px;
-    height: 24px;
-    border: 2px solid #333;
-    border-radius: 4px;
+.custom_checkbox .checkmark {
+    width: var(--rLoginCheckBox_size);
+    height: var(--rLoginCheckBox_size);
+    border: 1px solid var(--fontColor);
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    margin-right: 5px;
     transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
     transform-style: preserve-3d;
 }
   
-  .custom_checkbox .checkmark::before {
+.custom_checkbox .checkmark::before {
     content: "\2713";
-    font-size: 16px;
+    font-size: var(--rLoginCheckBox_fontSize);
     color: transparent;
     transition: color 0.3s, transform 0.3s;
 }
   
-  .custom_checkbox input[type="checkbox"]:checked + .checkmark {
-    background-color: #333;
-    border-color: #333;
+.custom_checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: var(--fontColor);
+    border-color: var(--fontColor);
     transform: scale(1.1) rotateZ(360deg) rotateY(360deg);
 }
   
-  .custom_checkbox input[type="checkbox"]:checked + .checkmark::before {
-    color: #fff;
+.custom_checkbox input[type="checkbox"]:checked + .checkmark::before {
+    color: var(--background);
 }
   
-  .custom_checkbox:hover {
-    color: #666;
-}
+/* .custom_checkbox:hover {
+  color: #666;
+} */
   
-  .custom_checkbox:hover .checkmark {
+/* .custom_checkbox:hover .checkmark {
     border-color: #666;
     background-color: #f0f0f0;
     transform: scale(1.05);
-}
+} */
   
-  .custom_checkbox input[type="checkbox"]:focus + .checkmark {
+.custom_checkbox input[type="checkbox"]:focus + .checkmark {
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
     outline: none;
 }
   
-  .custom_checkbox .checkmark,
-  .custom_checkbox input[type="checkbox"]:checked + .checkmark {
+.custom_checkbox .checkmark,
+.custom_checkbox input[type="checkbox"]:checked + .checkmark {
     transition: background-color 1.3s, border-color 1.3s, color 1.3s, transform 0.3s;
-}  
+}

@@ -16,7 +16,7 @@ main {
 
 #form {
     width: 35dvh;
-    height: 35dvh;
+    height: 37dvh;
     padding: 5dvh;
     min-height: fit-content;
 }
@@ -113,6 +113,11 @@ form > h2, #signup {
     align-items: center;
     color: var(--fontColor);
     transition: color 0s;
+}
+
+.loginError {
+    font-size: .7rem;
+    color: #F00;
 }
 
 @media only screen and (max-width: 768px) {

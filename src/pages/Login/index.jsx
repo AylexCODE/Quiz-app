@@ -8,13 +8,19 @@ import React, { useState } from 'react';
 
 function Login(){
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState(""); 
+    const [password, setPassword] = useState("");
+    let [loginErrorMsg, setLoginErrorMsg] = useState("");
     
+    function resetErrorMsg(){
+        setLoginErrorMsg("");
+    }
     const loginHandler = (e) => {
         e.preventDefault();
         
         if(!username || !password){
 
+        }else if(username.trim() != ""){
+            setLoginErrorMsg("Username not found");
         }
     };
     
@@ -36,10 +42,10 @@ function Login(){
                     <h2>Login</h2>
 
                     <label htmlFor="username">Username</label>
-                    <input type="text" className={Border.inputBorder} id="username" onChange={(e) => setUsername(e.target.value)} required />
+                    <input type="text" className={Border.inputBorder} id="username" onChange={(e) => {setUsername(e.target.value); resetErrorMsg()}} required />
 
                     <label htmlFor="password">Password</label>
-                    <input type="password" className={Border.inputBorder} id="password" onChange={(e) => setPassword(e.target.value)} required />
+                    <input type="password" className={Border.inputBorder} id="password" onChange={(e) => {setPassword(e.target.value); resetErrorMsg()}} required />
 
                     <span className="rememberAccount"> 
                         <label class={CustomCheckBox.custom_checkbox}>
@@ -49,12 +55,14 @@ function Login(){
                         <label htmlFor="rememberMe">Remember me</label>
                     </span>
                     {loginButton}
+                    <p className="loginError">{loginErrorMsg}</p>
                 </form>
                 <div id="signup">
                     <p>Need an account?&nbsp;</p>
                     {signupButton}
                 </div>
             </div>
+            {/* <a>Login as Guest</a> */}
         </main>
     )
 }

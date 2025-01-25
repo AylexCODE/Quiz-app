@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import {} from './index.css';
 
 import BrowserTheme from '../../features/themes/theme';
@@ -16,32 +14,27 @@ function Login(){
     function resetErrorMsg(){
         setLoginErrorMsg("");
     }
+
     const loginHandler = async (e) => {
         e.preventDefault();
         
         if(!username || !password){
 
         }else if(username.trim() !== "" && password.trim() !== ""){
-            await axios.request({
-                method: 'GET',
-                url: 'https://fireapi.onrender.com/select',
-                params: {
-                    from: 'Quiz_App/Account/Users'
-                }
+    //////
+            const xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-            })
-            .then((res) => {
-                setLoginErrorMsg(res);
-                console.log(res);
-            })
-            .catch((error) => {
-                setLoginErrorMsg(error);
-                console.log(error)
-            })
-            .finally(() => {
-                setLoginErrorMsg("Username not found");
-                console.log("E")
-            });
+    xhr.addEventListener('readystatechange', function () {
+      if (this.readyState === this.DONE) {
+	    console.log(this);
+      }
+    });
+
+    xhr.open('GET', 'https://fireapi.onrender.com/select?from=FBMessenger_JavaDash');
+    xhr.send();
+    /////
+            setLoginErrorMsg("Username not found");
         }
     };
     

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {} from './index.css';
 
 import BrowserTheme from '../../features/themes/theme';
@@ -14,13 +16,32 @@ function Login(){
     function resetErrorMsg(){
         setLoginErrorMsg("");
     }
-    const loginHandler = (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
         
         if(!username || !password){
 
-        }else if(username.trim() != ""){
-            setLoginErrorMsg("Username not found");
+        }else if(username.trim() !== "" && password.trim() !== ""){
+            await axios.request({
+                method: 'GET',
+                url: 'https://fireapi.onrender.com/select',
+                params: {
+                    from: 'Quiz_App/Account/Users'
+                }
+
+            })
+            .then((res) => {
+                setLoginErrorMsg(res);
+                console.log(res);
+            })
+            .catch((error) => {
+                setLoginErrorMsg(error);
+                console.log(error)
+            })
+            .finally(() => {
+                setLoginErrorMsg("Username not found");
+                console.log("E")
+            });
         }
     };
     

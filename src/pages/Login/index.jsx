@@ -5,7 +5,7 @@ import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
 import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Login(){
     const [username, setUsername] = useState("");
@@ -24,16 +24,17 @@ function Login(){
         }else if(username.trim() !== "" && password.trim() !== ""){
     //////
     const data = {
-        'from': 'FBMessenger_JavaDash'
+        "from": "FBMessenger_JavaDash"
     }
-
-    axios.post('https://fireapi.onrender.com/select', {data})
-    .then(response => {
-        console.log(response);
+    fetch('https://fireapi.onrender.com/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: JSON.stringify(data)
+    }).then(response => {
+        console.log("S")
+    }).catch(err => {
+        console.log(err)
     })
-    .catch(err => {
-        console.log(err);
-    });
     //////
             setLoginErrorMsg("Username not found");
         }

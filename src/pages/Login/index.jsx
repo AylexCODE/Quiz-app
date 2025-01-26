@@ -5,7 +5,7 @@ import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
 import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Login(){
     const [username, setUsername] = useState("");
@@ -22,20 +22,30 @@ function Login(){
         if(!username || !password){
 
         }else if(username.trim() !== "" && password.trim() !== ""){
-    //////
     const data = {
-        "from": "FBMessenger_JavaDash"
+        'from': 'Quiz-App/Account/Users'
     }
-    fetch('https://fireapi.onrender.com/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: JSON.stringify(data)
-    }).then(response => {
-        console.log("S")
-    }).catch(err => {
-        console.log(err)
+    
+    axios.post('https://fireapi.onrender.com/select', data)
+    .then(response => {
+        console.log(response.data);
     })
-    //////
+    .catch(error => {
+        console.log(error);
+    });
+    /*
+    fetch('https://fireapi.onrender.com/select', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    }).then(
+        response => response.json()
+    ).then((data) => {
+       console.log(data)
+    }).catch((err) => {
+        console.log(err);
+    });
+    */
             setLoginErrorMsg("Username not found");
         }
     };

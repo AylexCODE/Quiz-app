@@ -19,20 +19,30 @@ function Login(){
     const loginHandler = async (e) => {
         e.preventDefault();
         
-        if(!username || !password){
-
-        }else if(username.trim() !== "" && password.trim() !== ""){
-    const data = {
-        'from': 'Quiz-App/Account/Users'
-    }
+        if(username.trim() !== "" && password.trim() !== ""){
+            const data = {
+                'from': `Quiz_App/Users/${username}`
+            }
     
-    axios.post('https://fireapi.onrender.com/select', data)
-    .then(response => {
-        console.log(response.data);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+            axios.post('https://fireapi.onrender.com/select', data)
+            .then(response => {
+                const res = response.data[0];
+
+                if(res === "Data does not exits!"){
+                    setLoginErrorMsg("Username not found");
+                }else{
+                    const userPass = res?.data?.Password;
+                    if(password === userPass){
+                        //
+                    }else{
+                        setLoginErrorMsg("Wrong password");
+                    }
+                }
+            })
+            .catch(error => {
+                setLoginErrorMsg("Server is offline, try again later");
+                console.log(error);
+            });
     /*
     fetch('https://fireapi.onrender.com/select', {
         method: 'POST',
@@ -46,7 +56,7 @@ function Login(){
         console.log(err);
     });
     */
-            setLoginErrorMsg("Username not found");
+            //setLoginErrorMsg("Username not found");
         }
     };
     

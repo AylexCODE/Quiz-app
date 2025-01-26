@@ -1,4 +1,5 @@
 import {} from './index.css';
+import axios from 'axios';
 
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
@@ -22,18 +23,18 @@ function Login(){
 
         }else if(username.trim() !== "" && password.trim() !== ""){
     //////
-            const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+    const data = {
+        'from': 'FBMessenger_JavaDash'
+    }
 
-    xhr.addEventListener('readystatechange', function () {
-      if (this.readyState === this.DONE) {
-	    console.log(this);
-      }
+    axios.post('https://fireapi.onrender.com/select', {data})
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+        console.log(err);
     });
-
-    xhr.open('GET', 'https://fireapi.onrender.com/select?from=FBMessenger_JavaDash');
-    xhr.send();
-    /////
+    //////
             setLoginErrorMsg("Username not found");
         }
     };

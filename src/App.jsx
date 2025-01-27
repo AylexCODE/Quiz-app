@@ -1,23 +1,22 @@
 import {} from './features/themes/theme.css';
 
-import cookieFunctions from './features/cookie/cookie_manager';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Signup from './pages/Signup';
+import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';
-import Home from './pages/Home';
-
-const username = await cookieFunctions.GetCookie();
+import Home from './pages/Home/index';
 
 function App(){
-    if(username){
-        return (
-            <Home className="background" />
-        )
-    }else{
-        return (
-            <Login className="background" />
-        );
-    }
+    return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login className="background" />} />
+        <Route path="/pages/Login/index" element={<Login className="background" />} />
+        <Route path="/pages/Signup/index" element={<Signup className="background" />} />
+        <Route path="/pages/Home/index" element={<Home className="background" />} />
+      </Routes>
+    </BrowserRouter>
+    );
 }
 
 export default App;

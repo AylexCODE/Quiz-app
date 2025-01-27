@@ -6,19 +6,30 @@ import Border from '../../components/Border.module.css';
 import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
 
 import React, { useState } from 'react';
+import { Outlet, Link, Navigate } from 'react-router-dom';
+
+import cookieFunctions from '../../features/cookie/cookie_manager';
 
 function Login(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     let [loginErrorMsg, setLoginErrorMsg] = useState("");
-    
+
+    async function getSavedUser(){
+        if(await cookieFunctions.GetCookie()){
+            return <Navigate to="./pages/Home/index" />
+        }
+    }
+
+    getSavedUser();
+
     function resetErrorMsg(){
         setLoginErrorMsg("");
     }
 
     const loginHandler = async (e) => {
         e.preventDefault();
-        
+        console.log(await cookieFunctions.GetCookie());
         if(username.trim() !== "" && password.trim() !== ""){
             const data = {
                 'from': `Quiz_App/Users/${username}`
@@ -38,6 +49,8 @@ function Login(){
                         setLoginErrorMsg("Wrong password");
                     }
                 }
+
+               cookieFunctions.setCookie(username, password);
             })
             .catch(error => {
                 setLoginErrorMsg("Server is offline, try again later");
@@ -65,7 +78,10 @@ function Login(){
     )
     
     const signupButton = (
-        <button className={Border.noDesignButton}>Sign up</button>
+        <>
+        <button className={Border.noDesignButton}><Link to="./pages/Signup/index">Sign up</Link></button>
+        <Outlet />
+        </>
     )
     
     return (

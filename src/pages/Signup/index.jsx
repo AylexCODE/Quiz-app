@@ -1,6 +1,6 @@
 function Signup(){
     return (
-        <p>Signou</p>
+        <p>Signout</p>
     )
 }
 

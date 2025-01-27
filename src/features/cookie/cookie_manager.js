@@ -1,8 +1,8 @@
 import Cookies from "js-cookie";
 
 const cookieFunctions = {
-    async setCookie(){
-        Cookies.set('QuizAppAccount', 'lex:1234', { expires: 7, path: '/'});
+    async setCookie(username, password){
+        Cookies.set('QuizAppAccount', `${username}:${password}`, { expires: 7, path: '/'});
     },
     async GetCookie() {
         return Cookies.get('QuizAppAccount');

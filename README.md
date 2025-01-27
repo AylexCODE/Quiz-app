@@ -1,6 +1,7 @@
-### A quiz app literally!
-
-[Live Demo](https://bit.ly/Quiz-app)
+### It’s literally a quiz app!
+[[&nbsp; Visit &nbsp;]](https://bit.ly/Quiz-app)
+##
+> Status <br> [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/1r4sg.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 <!--
 # Getting Started with Create React App
 

@@ -1,7 +1,7 @@
 import {} from './index.css';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
-import { Navigate } from 'react-router-dom';
+import { Outlet, Navigate, Link} from 'react-router-dom';
 
 function removeSavedAccount(){
     cookieFunctions.removeCookie();
@@ -19,7 +19,10 @@ function Home(){
     }
 
     return (
-        <button onClick={removeSavedAccount} >Logout</button>
+        <>
+        <button onClick={removeSavedAccount} ><Link to="./pages/Login/index" >Logout</Link></button>
+        <Outlet />
+        </>
     );
 }
 

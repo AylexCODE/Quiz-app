@@ -20,7 +20,7 @@ function Home(){
 
     return (
         <>
-        <button onClick={removeSavedAccount} ><Link to="./pages/Login/index" >Logout</Link></button>
+        <button onClick={removeSavedAccount} ><Link to="./Login" >Logout</Link></button>
         <Outlet />
         </>
     );

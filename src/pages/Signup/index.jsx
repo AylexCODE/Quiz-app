@@ -18,7 +18,7 @@ function Signup(){
 
     const loginButton = (
         <>
-        <button className={Border.noDesignButton}><Link to="../../../pages/Login/index">Log in</Link></button>
+        <button className={Border.noDesignButton}><Link to="../Login">Log in</Link></button>
         <Outlet />
         </>
     );

@@ -16,9 +16,8 @@ main {
 
 #form {
     width: 35dvh;
-    height: 37dvh;
     padding: 5dvh;
-    min-height: fit-content;
+    height: fit-content;
 }
 
 form {
@@ -70,7 +69,7 @@ form > label, form > button {
     margin-top: 1dvh;
 }
 
-#signup > button {
+#signup > button, #signup > button > a:visited {
     font-size: .8rem;
     color: var(--linkColor);
 }

@@ -4,9 +4,10 @@ import axios from 'axios';
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
 import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
+import Home from '../Home';
 
 import React, { useState } from 'react';
-import { Outlet, Link, Navigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 
@@ -15,9 +16,11 @@ function Login(){
     const [password, setPassword] = useState("");
     let [loginErrorMsg, setLoginErrorMsg] = useState("");
 
+    const navigate = useNavigate();
     async function getSavedUser(){
         if(await cookieFunctions.GetCookie()){
-            return <Navigate to="./pages/Home/index" />
+            <Home load="loading" />
+            return navigate("../");
         }
     }
 
@@ -29,8 +32,10 @@ function Login(){
 
     const loginHandler = async (e) => {
         e.preventDefault();
-        console.log(await cookieFunctions.GetCookie());
-        if(username.trim() !== "" && password.trim() !== ""){
+    
+        if(username.trim() === "" && password.trim() === ""){
+            setLoginErrorMsg("Fill all fields");
+        }else{
             const data = {
                 'from': `Quiz_App/Users/${username}`
             }
@@ -44,7 +49,7 @@ function Login(){
                 }else{
                     const userPass = res?.data?.Password;
                     if(password === userPass){
-                        //
+                        navigate("../");
                     }else{
                         setLoginErrorMsg("Wrong password");
                     }
@@ -56,19 +61,19 @@ function Login(){
                 setLoginErrorMsg("Server is offline, try again later");
                 console.log(error);
             });
-    /*
-    fetch('https://fireapi.onrender.com/select', {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    }).then(
-        response => response.json()
-    ).then((data) => {
-       console.log(data)
-    }).catch((err) => {
-        console.log(err);
-    });
-    */
+            /*
+            fetch('https://fireapi.onrender.com/select', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            }).then(
+                response => response.json()
+            ).then((data) => {
+            console.log(data)
+            }).catch((err) => {
+                console.log(err);
+            });
+            */
             //setLoginErrorMsg("Username not found");
         }
     };
@@ -100,9 +105,9 @@ function Login(){
                     <input type="password" className={Border.inputBorder} id="password" onChange={(e) => {setPassword(e.target.value); resetErrorMsg()}} required />
 
                     <span className="rememberAccount"> 
-                        <label class={CustomCheckBox.custom_checkbox}>
+                        <label className={CustomCheckBox.custom_checkbox}>
                             <input name="dummy" type="checkbox" id="rememberMe" />
-                            <span class={CustomCheckBox.checkmark}></span>
+                            <span className={CustomCheckBox.checkmark}></span>
                         </label>
                         <label htmlFor="rememberMe">Remember me</label>
                     </span>

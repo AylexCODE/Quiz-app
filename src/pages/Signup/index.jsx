@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
 
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, Navigate } from 'react-router-dom';
 
 function Signup(){
     const [username, setUsername] = useState("");
@@ -22,12 +22,31 @@ function Signup(){
         }else if(password !== password2){
             setSignupErrorMsg("Passwords does not match");
         }else{
-            //w
+            const data = {
+                'from': `Quiz_App/Users/${username}`
+            }
+    
+            axios.post('https://fireapi.onrender.com/select', data)
+            .then(response => {
+                const res = response.data[0];
+                console.log(res)
+                if(res === "Data does not exits!"){
+                    <Navigate to="../Login" />
+                }else{
+                    setSignupErrorMsg("Username already exist");
+                }
+            })
+            .catch(error => {
+                setSignupErrorMsg("Server is offline, try again later");
+                console.log(error);
+            });
         }
     }
 
     function resetErrorMsg(){
-        setSignupErrorMsg("");
+        if(signupErrorMsg !== ""){
+            setSignupErrorMsg("");
+        }
     }
 
     const loginButton = (
@@ -46,14 +65,14 @@ function Signup(){
                 <form onSubmit={handleSignUp}>
                     <h2>Signup</h2>
 
-                    <label>Username</label>
-                    <input type="text" className={Border.inputBorder} onChange={(e) => {setUsername(e.target.value); resetErrorMsg()}} required />
+                    <label htmlFor="username">Username</label>
+                    <input type="text" className={Border.inputBorder} id="username" onChange={(e) => {setUsername(e.target.value); resetErrorMsg()}} required />
 
-                    <label>Password</label>
-                    <input type="password" className={Border.inputBorder} onChange={(e) => {setPassword(e.target.value); resetErrorMsg()}} required />
+                    <label htmlFor="paswword">Password</label>
+                    <input type="password" className={Border.inputBorder} id="password" onChange={(e) => {setPassword(e.target.value); resetErrorMsg()}} required />
 
-                    <label>Confirm Password</label>
-                    <input type="password" className={Border.inputBorder} onChange={(e) => {setPassword2(e.target.value); resetErrorMsg()}} required />
+                    <label htmlFor="password2">Confirm Password</label>
+                    <input type="password" className={Border.inputBorder} id="password2" onChange={(e) => {setPassword2(e.target.value); resetErrorMsg()}} required />
 
                     <button type="submit" className={Border.buttonBorder} onClick={handleSignUp}>Signup</button>
                     <p className="signupError">{signupErrorMsg}</p>                

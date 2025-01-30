@@ -1,4 +1,4 @@
-import {} from './index.css';
+import './index.css';
 import axios from 'axios';
 
 import BrowserTheme from '../../features/themes/theme';
@@ -14,6 +14,7 @@ import LoadingScreen from '../../components/Loader/LoadingScreen';
 function Login(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [saveUser, setUser] = useState(false);
     const [loginErrorMsg, setLoginErrorMsg] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
@@ -37,7 +38,7 @@ function Login(){
 
     const loginHandler = async (e) => {
         e.preventDefault();
-    
+
         if(username.trim() === "" && password.trim() === ""){
             setLoginErrorMsg("Fill all fields");
         }else{
@@ -54,13 +55,12 @@ function Login(){
                 }else{
                     const userPass = res?.data?.Password;
                     if(password === userPass){
-                        navigate("/", { replace: true});
+                        if(saveUser) cookieFunctions.setCookie(username, password);
+                        navigate("/", { state: username, replace: true});
                     }else{
                         setLoginErrorMsg("Wrong password");
                     }
                 }
-
-               cookieFunctions.setCookie(username, password);
             })
             .catch(error => {
                 setLoginErrorMsg("Server is offline, try again later");
@@ -113,7 +113,7 @@ function Login(){
 
                     <span className="rememberAccount"> 
                         <label className={CustomCheckBox.custom_checkbox}>
-                            <input name="dummy" type="checkbox" id="rememberMe" />
+                            <input name="dummy" type="checkbox" id="rememberMe" onChange={(e) => setUser(e.target.checked)}/>
                             <span className={CustomCheckBox.checkmark}></span>
                         </label>
                         <label htmlFor="rememberMe">Remember me</label>

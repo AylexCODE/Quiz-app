@@ -5,11 +5,12 @@ import './index.css';
 import LoadingScreen from '../../components/Loader/LoadingScreen';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
-import { Outlet, useNavigate, Link} from 'react-router-dom';
+import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
 
 function Home(){
     const [isLoading, setIsLoading] = useState(true);
 
+    const userInfo = useLocation();
     const navigate = useNavigate();
     function removeSavedAccount(){
         cookieFunctions.removeCookie();
@@ -19,11 +20,17 @@ function Home(){
     async function isLoggedIn(){
         const savedUser = await cookieFunctions.GetCookie();
         
-        if(!savedUser){
-            navigate("/Login", { replace: true });
-        }else{
-            setIsLoading(false);
-        }
+        setTimeout(() => {
+            if(!savedUser){
+                if(userInfo.state){
+                    setIsLoading(false);
+                }else{
+                    navigate("/Login", { replace: true });
+                }
+            }else{
+                setIsLoading(false);
+            }
+        }, 2000);
     }
 
     isLoggedIn();

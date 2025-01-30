@@ -1,9 +1,15 @@
-import {} from './index.css';
+import React, { useState } from 'react';
+
+import './index.css';
+
+import LoadingScreen from '../../components/Loader/LoadingScreen';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import { Outlet, useNavigate, Link} from 'react-router-dom';
 
 function Home(){
+    const [isLoading, setIsLoading] = useState(true);
+
     const navigate = useNavigate();
     function removeSavedAccount(){
         cookieFunctions.removeCookie();
@@ -14,7 +20,9 @@ function Home(){
         const savedUser = await cookieFunctions.GetCookie();
         
         if(!savedUser){
-            navigate("./Login");
+            navigate("/Login", { replace: true });
+        }else{
+            setIsLoading(false);
         }
     }
 
@@ -22,15 +30,21 @@ function Home(){
 
     const logOutButton = (
         <>
-        <button onClick={removeSavedAccount} ><Link to="./Login">Logout</Link></button>
+        <button onClick={removeSavedAccount} ><Link to="/Login" replace>Logout</Link></button>
         <Outlet />
         </>
     );
 
     return (
         <main>
+        {isLoading === false ? (
+            <>
             <div className="loadingScreen"></div>
             {logOutButton}
+            </>
+        ) : (
+            <LoadingScreen />
+        )}
         </main>
     );
 }

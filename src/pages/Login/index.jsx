@@ -4,24 +4,29 @@ import axios from 'axios';
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
 import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
-import Home from '../Home';
 
 import React, { useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
+import LoadingScreen from '../../components/Loader/LoadingScreen';
 
 function Login(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    let [loginErrorMsg, setLoginErrorMsg] = useState("");
+    const [loginErrorMsg, setLoginErrorMsg] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
     async function getSavedUser(){
-        if(await cookieFunctions.GetCookie()){
-            <Home load="loading" />
-            return navigate("../");
-        }
+        const savedUser = await cookieFunctions.GetCookie();
+        setTimeout(() => {
+            if(savedUser){
+                navigate("/", { replace: true});
+            }else{
+                setIsLoading(false);
+            }
+        }, 1000);
     }
 
     getSavedUser();
@@ -49,7 +54,7 @@ function Login(){
                 }else{
                     const userPass = res?.data?.Password;
                     if(password === userPass){
-                        navigate("../");
+                        navigate("/", { replace: true});
                     }else{
                         setLoginErrorMsg("Wrong password");
                     }
@@ -84,13 +89,15 @@ function Login(){
     
     const signupButton = (
         <>
-        <button className={Border.noDesignButton}><Link to="../Signup">Sign up</Link></button>
+        <button className={Border.noDesignButton}><Link to="/Signup" replace>Sign up</Link></button>
         <Outlet />
         </>
     )
     
     return (
         <main>
+        {isLoading === false ? (
+        <>
             <span className="toggleThemeSwitch">
                 <BrowserTheme />
             </span>
@@ -120,6 +127,10 @@ function Login(){
                 </div>
             </div>
             {/* <a>Login as Guest</a> */}
+        </>
+        ) : (
+            <LoadingScreen />
+        )}
         </main>
     )
 }

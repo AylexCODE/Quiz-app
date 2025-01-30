@@ -5,14 +5,30 @@ import React, { useState } from 'react';
 
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
+import LoadingScreen from '../../components/Loader/LoadingScreen';
+import cookieFunctions from '../../features/cookie/cookie_manager';
 
-import { Outlet, Link, Navigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 function Signup(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [signupErrorMsg, setSignupErrorMsg] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+
+    const navigate = useNavigate();
+    async function getSavedUser(){
+        const savedUser = await cookieFunctions.removeCookie();
+        setTimeout(() => {
+            if(savedUser){
+                navigate("/", { replace: true });
+            }else{
+                setIsLoading(false);
+            }
+        }, 1000);
+    }
+    getSavedUser();
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -29,9 +45,8 @@ function Signup(){
             axios.post('https://fireapi.onrender.com/select', data)
             .then(response => {
                 const res = response.data[0];
-                console.log(res)
                 if(res === "Data does not exits!"){
-                    <Navigate to="../Login" />
+                    navigate("/Login", { replace: true });
                 }else{
                     setSignupErrorMsg("Username already exist");
                 }
@@ -51,13 +66,15 @@ function Signup(){
 
     const loginButton = (
         <>
-        <button className={Border.noDesignButton}><Link to="../Login">Log in</Link></button>
+        <button className={Border.noDesignButton}><Link to="/Login" replace>Log in</Link></button>
         <Outlet />
         </>
     );
 
     return (
         <main>
+        {isLoading === false ? (
+            <>
             <span className="toggleThemeSwitch">
                 <BrowserTheme />
             </span>
@@ -82,6 +99,10 @@ function Signup(){
                     {loginButton}
                 </div>
             </div>
+            </>
+        ) : (
+            <LoadingScreen />
+        )}
         </main>
     )
 }

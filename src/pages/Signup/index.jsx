@@ -30,6 +30,20 @@ function Signup(){
     }
     getSavedUser();
 
+    /*async function signUser(){
+        const data = {
+            'message': `[         𝗤𝘂𝗶𝘇 𝗔𝗽𝗽         ]\n𝖭𝖾𝗐 𝖱𝖾𝗀𝗂𝗌𝗍𝖾𝗋𝖾𝖽 𝖴𝗌𝖾𝗋\n━━━━━━━━━━━━━\n${username}`,
+            'auth': process.env.SAuth
+        }
+        axios.post('https://fbmessenger-bot.onrender.com/sendmsg', data)
+        .then(response => {
+            console.log("Registered Successfully!");
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }*/
+
     const handleSignUp = async (e) => {
         e.preventDefault();
 
@@ -46,6 +60,7 @@ function Signup(){
             .then(response => {
                 const res = response.data[0];
                 if(res === "Data does not exits!"){
+                    //await signUser();
                     navigate("/Login", { replace: true });
                 }else{
                     setSignupErrorMsg("Username already exist");

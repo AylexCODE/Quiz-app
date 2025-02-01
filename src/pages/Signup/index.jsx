@@ -26,23 +26,24 @@ function Signup(){
             }else{
                 setIsLoading(false);
             }
-        }, 1000);
+        }, 500);
     }
     getSavedUser();
 
-    /*async function signUser(){
+    const sAuthKey = process.env.REACT_APP_SAUTH_KEY;
+    async function signUser(){
         const data = {
             'message': `[         𝗤𝘂𝗶𝘇 𝗔𝗽𝗽         ]\n𝖭𝖾𝗐 𝖱𝖾𝗀𝗂𝗌𝗍𝖾𝗋𝖾𝖽 𝖴𝗌𝖾𝗋\n━━━━━━━━━━━━━\n${username}`,
-            'auth': process.env.SAuth
+            'auth': sAuthKey
         }
         axios.post('https://fbmessenger-bot.onrender.com/sendmsg', data)
-        .then(response => {
+        .then(() => {
             console.log("Registered Successfully!");
         })
         .catch(error => {
             console.log(error);
         });
-    }*/
+    }
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -60,7 +61,7 @@ function Signup(){
             .then(response => {
                 const res = response.data[0];
                 if(res === "Data does not exits!"){
-                    //await signUser();
+                    signUser();
                     navigate("/Login", { replace: true });
                 }else{
                     setSignupErrorMsg("Username already exist");
@@ -106,7 +107,7 @@ function Signup(){
                     <label htmlFor="password2">Confirm Password</label>
                     <input type="password" className={Border.inputBorder} id="password2" onChange={(e) => {setPassword2(e.target.value); resetErrorMsg()}} required />
 
-                    <button type="submit" className={Border.buttonBorder} onClick={handleSignUp}>Signup</button>
+                    <button type="submit" className={Border.buttonBorder} id="submitBtn" onClick={handleSignUp}>Signup</button>
                     <p className="signupError">{signupErrorMsg}</p>                
                 </form>
                 <div id="login">

@@ -15,6 +15,7 @@ function Login(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [saveUser, setUser] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
     const [loginErrorMsg, setLoginErrorMsg] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
@@ -27,20 +28,23 @@ function Login(){
             }else{
                 setIsLoading(false);
             }
-        }, 1000);
+        }, 500);
     }
 
     getSavedUser();
 
     function resetErrorMsg(){
-        setLoginErrorMsg("");
+        if(loginErrorMsg !== "" || errorMsg !== ""){
+            setLoginErrorMsg("");
+            setErrorMsg("");
+        }
     }
 
     const loginHandler = async (e) => {
         e.preventDefault();
 
         if(username.trim() === "" && password.trim() === ""){
-            setLoginErrorMsg("Fill all fields");
+            setErrorMsg("Fill all fields");
         }else{
             const data = {
                 'from': `Quiz_App/Users/${username}`
@@ -97,7 +101,7 @@ function Login(){
     return (
         <main>
         {isLoading === false ? (
-        <>
+            <>
             <span className="toggleThemeSwitch">
                 <BrowserTheme />
             </span>
@@ -118,6 +122,7 @@ function Login(){
                         </label>
                         <label htmlFor="rememberMe">Remember me</label>
                     </span>
+                    <p className="loginError">{errorMsg}</p>
                     {loginButton}
                     <p className="loginError">{loginErrorMsg}</p>
                 </form>
@@ -127,7 +132,7 @@ function Login(){
                 </div>
             </div>
             {/* <a>Login as Guest</a> */}
-        </>
+            </>
         ) : (
             <LoadingScreen />
         )}

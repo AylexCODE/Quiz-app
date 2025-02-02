@@ -56,7 +56,7 @@ function Signup(){
             'collection': `${process.env.REACT_APP_DB_COLLECTION}`,
             'document': `${process.env.REACT_APP_DB_DOCUMENT}/${username}`,
             'value': password,
-            'method': 'add'
+            'method': 'addUser'
         }
 
         axios.post('https://fireapi.onrender.com/insert', data)

@@ -53,7 +53,7 @@ function Login(){
             setErrorMsg("Fill all fields");
         }else{
             const data = {
-                'from': `Quiz_App/Users/${username}`
+                'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${username}`
             }
     
             axios.post('https://fireapi.onrender.com/select', data)

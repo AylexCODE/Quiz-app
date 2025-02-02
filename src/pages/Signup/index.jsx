@@ -51,6 +51,23 @@ function Signup(){
         });
     }
 
+    async function setUserInfo(){
+        const data = {
+            'collection': `${process.env.REACT_APP_DB_COLLECTION}`,
+            'document': `${process.env.REACT_APP_DB_DOCUMENT}/${username}`,
+            'value': password,
+            'method': 'add'
+        }
+
+        axios.post('https://fireapi.onrender.com/insert', data)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+
     const handleSignUp = async (e) => {
         e.preventDefault();
 
@@ -60,7 +77,7 @@ function Signup(){
             setSignupErrorMsg("Passwords does not match");
         }else{
             const data = {
-                'from': `Quiz_App/Users/${username}`
+                'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${username}`
             }
     
             axios.post('https://fireapi.onrender.com/select', data)
@@ -75,7 +92,7 @@ function Signup(){
             })
             .catch(error => {
                 setSignupErrorMsg("Server is offline, try again later");
-                console.log(error);
+                console.error(error);
             });
         }
     }

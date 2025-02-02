@@ -8,6 +8,7 @@
     color: var(--fontColor);
     margin-top: 1dvh;
     transition: color 0s;
+    text-wrap: nowrap;
 }
 
 #login > button, #login > button > a:visited {

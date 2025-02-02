@@ -35,7 +35,25 @@ function Signup(){
         }
     }
     getSavedUser();
-
+    
+    async function setUserInfo(){
+        const data = {
+            'collection': `${process.env.REACT_APP_DB_COLLECTION}`,
+            'document': `${process.env.REACT_APP_DB_DOCUMENT}/${username}`,
+            'value': password,
+            'method': 'addUser'
+        }
+        
+        axios.post('https://fireapi.onrender.com/insert', data)
+        .then(response => {
+            console.log(response);
+            signUser();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+    
     const sAuthKey = process.env.REACT_APP_SAUTH_KEY;
     async function signUser(){
         const data = {
@@ -48,23 +66,6 @@ function Signup(){
         })
         .catch(error => {
             console.log(error);
-        });
-    }
-
-    async function setUserInfo(){
-        const data = {
-            'collection': `${process.env.REACT_APP_DB_COLLECTION}`,
-            'document': `${process.env.REACT_APP_DB_DOCUMENT}/${username}`,
-            'value': password,
-            'method': 'addUser'
-        }
-
-        axios.post('https://fireapi.onrender.com/insert', data)
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.error(error);
         });
     }
 
@@ -84,7 +85,7 @@ function Signup(){
             .then(response => {
                 const res = response.data[0];
                 if(res === "Data does not exist!"){
-                    signUser();
+                    setUserInfo();
                     navigate("/Login", { replace: true });
                 }else{
                     setSignupErrorMsg("Username already exist");

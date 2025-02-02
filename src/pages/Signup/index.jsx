@@ -8,7 +8,7 @@ import Border from '../../components/Border.module.css';
 import LoadingScreen from '../../components/Loader/LoadingScreen';
 import cookieFunctions from '../../features/cookie/cookie_manager';
 
-import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 
 function Signup(){
     const [username, setUsername] = useState("");
@@ -18,15 +18,21 @@ function Signup(){
     const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
+    const linkState = useLocation();
+
     async function getSavedUser(){
-        const savedUser = await cookieFunctions.removeCookie();
-        setTimeout(() => {
-            if(savedUser){
-                navigate("/", { replace: true });
-            }else{
-                setIsLoading(false);
-            }
-        }, 500);
+        if(linkState.state && isLoading){
+            setIsLoading(false);
+        }else{
+            const savedUser = await cookieFunctions.removeCookie();
+            setTimeout(() => {
+                if(savedUser){
+                    navigate("/", { replace: true });
+                }else{
+                    setIsLoading(false);
+                }
+            }, 500);
+        }
     }
     getSavedUser();
 
@@ -82,7 +88,7 @@ function Signup(){
 
     const loginButton = (
         <>
-        <button className={Border.noDesignButton}><Link to="/Login" replace>Log in</Link></button>
+        <button className={Border.noDesignButton}><Link to="/Login" replace state={"FromSignup"}>Log in</Link></button>
         <Outlet />
         </>
     );

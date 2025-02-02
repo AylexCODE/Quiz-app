@@ -6,7 +6,7 @@ import Border from '../../components/Border.module.css';
 import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
 
 import React, { useState } from 'react';
-import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import LoadingScreen from '../../components/Loader/LoadingScreen';
@@ -20,15 +20,21 @@ function Login(){
     const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
+    const linkState = useLocation();
+
     async function getSavedUser(){
-        const savedUser = await cookieFunctions.GetCookie();
-        setTimeout(() => {
-            if(savedUser){
-                navigate("/", { replace: true});
-            }else{
-                setIsLoading(false);
-            }
-        }, 500);
+        if(linkState.state && isLoading){
+            setIsLoading(false);
+        }else{
+            const savedUser = await cookieFunctions.GetCookie();
+            setTimeout(() => {
+                if(savedUser){
+                    navigate("/", { replace: true });
+                }else{
+                    setIsLoading(false);
+                }
+            }, 500);
+        }
     }
 
     getSavedUser();
@@ -93,7 +99,7 @@ function Login(){
     
     const signupButton = (
         <>
-        <button className={Border.noDesignButton}><Link to="/Signup" replace>Sign up</Link></button>
+        <button className={Border.noDesignButton}><Link to="/Signup" replace state={"FromLogin"}>Sign up</Link></button>
         <Outlet />
         </>
     )

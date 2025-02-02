@@ -25,7 +25,7 @@ function Home(){
                 if(userInfo.state){
                     setIsLoading(false);
                 }else{
-                    navigate("/Login", { replace: true });
+                    navigate("/Login", { replace: true, state: "FromHome" });
                 }
             }else{
                 setIsLoading(false);

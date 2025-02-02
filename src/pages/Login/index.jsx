@@ -53,17 +53,18 @@ function Login(){
             setErrorMsg("Fill all fields");
         }else{
             const data = {
-                'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${username}`
+                'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${process.env.REACT_APP_DB_DOCUMENTT}/${username}`,
+                'limit': 'Na'
             }
     
             axios.post('https://fireapi.onrender.com/select', data)
             .then(response => {
-                const res = response.data[0];
-
+                const res = response.data;
+                
                 if(res === "Data does not exist!"){
                     setLoginErrorMsg("Username not found");
                 }else{
-                    const userPass = res?.data?.Password;
+                    const userPass = ''+res;
                     if(password === userPass){
                         if(saveUser) cookieFunctions.setCookie(username, password);
                         navigate("/", { state: username, replace: true});

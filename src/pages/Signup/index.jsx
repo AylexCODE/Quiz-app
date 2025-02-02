@@ -39,14 +39,14 @@ function Signup(){
     async function setUserInfo(){
         const data = {
             'collection': `${process.env.REACT_APP_DB_COLLECTION}`,
-            'document': `${process.env.REACT_APP_DB_DOCUMENT}/${username}`,
+            'document': `${process.env.REACT_APP_DB_DOCUMENT}/${process.env.REACT_APP_DB_DOCUMENTT}/${username}`,
             'value': password,
             'method': 'addUser'
         }
         
         axios.post('https://fireapi.onrender.com/insert', data)
         .then(response => {
-            console.log(response);
+            console.log("User added to database!");
             signUser();
         })
         .catch(error => {
@@ -68,7 +68,7 @@ function Signup(){
             console.log(error);
         });
     }
-
+    
     const handleSignUp = async (e) => {
         e.preventDefault();
 
@@ -78,12 +78,14 @@ function Signup(){
             setSignupErrorMsg("Passwords does not match");
         }else{
             const data = {
-                'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${username}`
+                'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${process.env.REACT_APP_DB_DOCUMENTT}/${username}`,
+                'limit': 'Na'
             }
-    
+ 
             axios.post('https://fireapi.onrender.com/select', data)
             .then(response => {
-                const res = response.data[0];
+                const res = response.data;
+                
                 if(res === "Data does not exist!"){
                     setUserInfo();
                     navigate("/Login", { replace: true });

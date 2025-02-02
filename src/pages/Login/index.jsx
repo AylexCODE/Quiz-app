@@ -60,7 +60,7 @@ function Login(){
             .then(response => {
                 const res = response.data[0];
 
-                if(res === "Data does not exits!"){
+                if(res === "Data does not exist!"){
                     setLoginErrorMsg("Username not found");
                 }else{
                     const userPass = res?.data?.Password;

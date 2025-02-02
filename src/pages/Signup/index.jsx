@@ -83,7 +83,7 @@ function Signup(){
             axios.post('https://fireapi.onrender.com/select', data)
             .then(response => {
                 const res = response.data[0];
-                if(res === "Data does not exits!"){
+                if(res === "Data does not exist!"){
                     signUser();
                     navigate("/Login", { replace: true });
                 }else{

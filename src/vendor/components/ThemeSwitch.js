@@ -1,4 +1,4 @@
-import {} from './ThemeSwitch.css';
+import './ThemeSwitch.css';
 
 let isDarkMode, rootPane = document.querySelector("body");
 
@@ -10,9 +10,9 @@ function setTheme(event){
 
 function ToggleTheme(theme){
     isDarkMode = theme.isDark;
-    // From Uiverse.io by Galahhad -->
+    // by Galahhad -->
     return (
-       // <!-- From Uiverse.io by 00Kubi --> 
+       // <!-- by 00Kubi --> 
         <label className="theme-switch">
         <input className="theme-switch__checkbox" defaultChecked={isDarkMode ? true : false} type="checkbox" onClick={setTheme}/>
         <div className="theme-switch__container">

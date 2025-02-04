@@ -1,0 +1,31 @@
+/* From Uiverse.io by Fernando-sv */ 
+.Sloader {
+    border: 2px solid var(--fontColor);
+    border-left-color: transparent;
+    border-radius: 50%;
+  }
+  
+  .Sloader {
+    border: 2px solid var(--fontColor);
+    border-left-color: transparent;
+    width: 8px;
+    height: 8px;
+  }
+  
+  .Sloader {
+    border: 2px solid var(--fontColor);
+    border-left-color: transparent;
+    width: 8px;
+    height: 8px;
+    animation: spin89345 1s linear infinite;
+  }
+  
+  @keyframes spin89345 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }

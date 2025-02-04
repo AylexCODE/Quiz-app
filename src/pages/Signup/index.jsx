@@ -1,12 +1,13 @@
 import './index.css';
 import axios from 'axios';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
 import LoadingScreen from '../../components/Loader/LoadingScreen';
 import cookieFunctions from '../../features/cookie/cookie_manager';
+import SLoader from '../../vendor/components/SmallLoader';
 
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 
@@ -14,8 +15,10 @@ function Signup(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
     const [signupErrorMsg, setSignupErrorMsg] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [loginBtnIsLoading, setLoginBtnIsLoading] = useState(" btnNotLoading");
 
     const navigate = useNavigate();
     const linkState = useLocation();
@@ -73,10 +76,11 @@ function Signup(){
         e.preventDefault();
 
         if(username.trim() === "" || password.trim() === "" || password2.trim() === ""){
-            setSignupErrorMsg("Fill all fields");
+            setErrorMsg("Fill all fields");
         }else if(password !== password2){
-            setSignupErrorMsg("Passwords does not match");
+            setErrorMsg("Passwords does not match");
         }else{
+            setLoginBtnIsLoading(" loadingBtn");
             const data = {
                 'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${process.env.REACT_APP_DB_DOCUMENTT}/${username}`,
                 'limit': 'Na'
@@ -92,10 +96,12 @@ function Signup(){
                 }else{
                     setSignupErrorMsg("Username already exist");
                 }
+                setLoginBtnIsLoading(" btnNotLoading");
             })
             .catch(error => {
                 setSignupErrorMsg("Server is offline, try again later");
                 console.error(error);
+                setLoginBtnIsLoading(" btnNotLoading");
             });
         }
     }
@@ -105,6 +111,23 @@ function Signup(){
             setSignupErrorMsg("");
         }
     }
+
+    useEffect(() => {
+        setErrorMsg("");
+        if(password !=="" && password2 !== "" && (password !== password2)){
+            setErrorMsg("Passwords does not match");
+        }
+    }, [password, password2]);
+
+    const signupButton = (
+        <>
+        { loginBtnIsLoading === " btnNotLoading" ? (
+            <button type="submit" className={Border.buttonBorder} id="submitBtn" onClick={handleSignUp}>Signup</button>
+        ) : (
+            <button type="submit" className={Border.buttonBorder} id="submitBtn" disabled={true}><SLoader />&nbsp;Signup</button>
+        )}
+        </>
+    )
 
     const loginButton = (
         <>
@@ -132,8 +155,8 @@ function Signup(){
 
                     <label htmlFor="password2">Confirm Password</label>
                     <input type="password" className={Border.inputBorder} id="password2" onChange={(e) => {setPassword2(e.target.value); resetErrorMsg()}} required />
-
-                    <button type="submit" className={Border.buttonBorder} id="submitBtn" onClick={handleSignUp}>Signup</button>
+                    <p className="signupError">{errorMsg}</p>
+                    {signupButton}
                     <p className="signupError">{signupErrorMsg}</p>                
                 </form>
                 <div id="login">

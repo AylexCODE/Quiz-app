@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import BrowserTheme from '../../features/themes/theme';
 import Border from '../../components/Border.module.css';
-import CustomCheckBox from './../../vendor/components/CustomCheckBox.module.css';
+import CustomCheckBox from '../../vendor/components/CustomCheckBox.module.css';
+import SLoader from '../../vendor/components/SmallLoader';
 
 import React, { useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
@@ -18,6 +19,7 @@ function Login(){
     const [errorMsg, setErrorMsg] = useState("");
     const [loginErrorMsg, setLoginErrorMsg] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [loginBtnIsLoading, setLoginBtnIsLoading] = useState(" btnNotLoading");
 
     const navigate = useNavigate();
     const linkState = useLocation();
@@ -48,10 +50,11 @@ function Login(){
 
     const loginHandler = async (e) => {
         e.preventDefault();
-
+        
         if(username.trim() === "" && password.trim() === ""){
             setErrorMsg("Fill all fields");
         }else{
+            setLoginBtnIsLoading(" loadingBtn");
             const data = {
                 'from': `${process.env.REACT_APP_DB_COLLECTION}/${process.env.REACT_APP_DB_DOCUMENT}/${process.env.REACT_APP_DB_DOCUMENTT}/${username}`,
                 'limit': 'Na'
@@ -63,6 +66,7 @@ function Login(){
                 
                 if(res === "Data does not exist!"){
                     setLoginErrorMsg("Username not found");
+                    setLoginBtnIsLoading(" btnNotLoading");
                 }else{
                     const userPass = ''+res;
                     if(password === userPass){
@@ -71,6 +75,7 @@ function Login(){
                     }else{
                         setLoginErrorMsg("Wrong password");
                     }
+                    setLoginBtnIsLoading(" btnNotLoading");
                 }
             })
             .catch(error => {
@@ -93,9 +98,15 @@ function Login(){
             //setLoginErrorMsg("Username not found");
         }
     };
-    
+
     const loginButton = (
-        <button className={Border.buttonBorder} onClick={loginHandler}>Login</button>
+        <>
+        { loginBtnIsLoading === " btnNotLoading" ? (
+            <button className={Border.buttonBorder +loginBtnIsLoading} onClick={loginHandler}>Login</button>
+        ) : (
+            <button className={Border.buttonBorder +loginBtnIsLoading} disabled={true}><SLoader />&nbsp;Login</button>
+        )}
+        </>
     )
     
     const signupButton = (

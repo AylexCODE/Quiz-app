@@ -148,13 +148,13 @@ function Signup(){
                     <h2>Signup</h2>
 
                     <label htmlFor="username">Username</label>
-                    <input type="text" className={Border.inputBorder} id="username" onChange={(e) => {setUsername(e.target.value); resetErrorMsg()}} required />
+                    <input type="text" className={Border.inputBorder} id="username" onChange={(e) => {setUsername(e.target.value); resetErrorMsg()}} autoComplete={false} required />
 
                     <label htmlFor="paswword">Password</label>
-                    <input type="password" className={Border.inputBorder} id="password" onChange={(e) => {setPassword(e.target.value); resetErrorMsg()}} required />
+                    <input type="password" className={Border.inputBorder} id="password" onChange={(e) => {setPassword(e.target.value); resetErrorMsg()}} autoComplete={false} required />
 
                     <label htmlFor="password2">Confirm Password</label>
-                    <input type="password" className={Border.inputBorder} id="password2" onChange={(e) => {setPassword2(e.target.value); resetErrorMsg()}} required />
+                    <input type="password" className={Border.inputBorder} id="password2" onChange={(e) => {setPassword2(e.target.value); resetErrorMsg()}} autoComplete={false} required />
                     <p className="signupError">{errorMsg}</p>
                     {signupButton}
                     <p className="signupError">{signupErrorMsg}</p>                

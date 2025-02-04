@@ -3,7 +3,7 @@ import './ThemeSwitch.css';
 let isDarkMode, rootPane = document.querySelector("body");
 
 function setTheme(event){
-    isDarkMode = event?.target?.checked
+    isDarkMode = event?.target?.checked;
     localStorage.setItem('theme', isDarkMode ? 'dark': 'light');
     rootPane.setAttribute('data-theme', isDarkMode ? 'dark': 'light');
 }

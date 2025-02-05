@@ -47,7 +47,11 @@ function Signup(){
             'method': 'addUser'
         }
         
-        axios.post('https://fireapi.onrender.com/insert', data)
+        axios.post('https://fireapi.onrender.com/insert', data, {
+            headers: {
+                'apikey': process.env.REACT_APP_FIREAPI_KEY
+            }
+        })
         .then(response => {
             console.log("User added to database!");
             signUser();

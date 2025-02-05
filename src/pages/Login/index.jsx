@@ -63,8 +63,8 @@ function Login(){
             axios.post('https://fireapi.onrender.com/select', data, {
                 headers: {
                     'apikey': process.env.REACT_APP_FIREAPI_KEY
-                }}
-            )
+                }
+            })
             .then(response => {
                 const res = response.data;
                 

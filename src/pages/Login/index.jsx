@@ -51,7 +51,7 @@ function Login(){
     const loginHandler = async (e) => {
         e.preventDefault();
         
-        if(username.trim() === "" && password.trim() === ""){
+        if(username.trim() === "" || password.trim() === ""){
             setErrorMsg("Fill all fields");
         }else{
             setLoginBtnIsLoading(" loadingBtn");

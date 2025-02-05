@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './index.css';
 
 import LoadingScreen from '../../components/Loader/LoadingScreen';
+import Nav from '../../components/HeaderNav';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
@@ -46,6 +47,7 @@ function Home(){
         <main>
         {isLoading === false ? (
             <>
+            <Nav />
             <div className="loadingScreen"></div>
             {logOutButton}
             </>

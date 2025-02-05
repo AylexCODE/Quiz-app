@@ -1,0 +1,14 @@
+nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 55px; /*6dvh;*/
+    width: 100dvw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > p {
+    margin: 0px 20px;
+}

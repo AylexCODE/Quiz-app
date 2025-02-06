@@ -48,7 +48,7 @@ function Home(){
         {isLoading === false ? (
             <>
             <Nav />
-            <div className="wrapper">
+            <div className={HomeStyle.wrapper}>
 
             </div>
             {logOutButton}

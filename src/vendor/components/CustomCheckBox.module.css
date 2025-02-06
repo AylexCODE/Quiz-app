@@ -1,7 +1,7 @@
 /* by KhaledMatalkah */ 
 .custom_checkbox {
-    --rLoginCheckBox_fontSize: .6rem;
-    --rLoginCheckBox_size: .8rem;
+    --rLoginCheckBox_fontSize: 1.6dvh; /* .6rem */
+    --rLoginCheckBox_size: 1.8dvh; /* .8rem */
     display: inline-flex;
     align-items: center;
     user-select: none;

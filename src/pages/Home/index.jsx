@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './index.css';
+import HomeStyle from './index.module.css';
 
 import LoadingScreen from '../../components/Loader/LoadingScreen';
 import Nav from '../../components/HeaderNav';
@@ -48,7 +48,9 @@ function Home(){
         {isLoading === false ? (
             <>
             <Nav />
-            <div className="loadingScreen"></div>
+            <div className="wrapper">
+
+            </div>
             {logOutButton}
             </>
         ) : (

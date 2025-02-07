@@ -1,10 +1,15 @@
 import './HeaderNav.css';
+import MenuBurgerBar from '../vendor/components/MenuBar'
 
 function Nav(){
     return (
         <nav>
-            <p>Logo</p>
-            <p>Setttings</p>
+            <span>
+                <p>Logo</p>
+            </span>
+            <span>
+                <MenuBurgerBar />
+            </span>
         </nav>
     );
 }

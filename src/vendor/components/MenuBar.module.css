@@ -27,7 +27,7 @@
     margin: 3px auto;
     border-radius: 40px;
     transition: all 0.3s cubic-bezier(0.37, -1.11, 0.79, 2.02);
-    background-color: #404040;
+    background-color: var(--fontColor);
 }
   
 .hamburger input:checked ~ .bar:nth-child(2) {

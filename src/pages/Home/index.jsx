@@ -53,13 +53,25 @@ function Home(){
                 <button className={Border.buttonBorder}>
                     Multiple Choice
                     <span>
-                        Everyones favorite type of test
+                        Everyones favorite type of test.
                     </span>
                 </button>
                 <button className={Border.buttonBorder}>
                     Two Truths and One Lie
                     <span>
-                        Identify which one is a lie
+                        Identify which one is a lie.
+                    </span>
+                </button>
+                <button className={Border.buttonBorder}>
+                    Enumeration
+                    <span>
+                        Specify the expected number of answers.
+                    </span>
+                </button>
+                <button className={Border.buttonBorder}>
+                    True or False
+                    <span>
+                        Determine whether a statement is correct.
                     </span>
                 </button>
             </div>

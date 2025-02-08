@@ -10,11 +10,21 @@
 .wrapper > button{
     padding: 5px 5px;
     font-size: 1rem;
-    text-align: left;
     display: flex;
+    text-align: left;
+    align-items: left;
+    /* justify-content: center; */
     flex-direction: column;
-    width: 145px;
+    width: fit-content;;
     height: 130px;
+}
+
+.wrapper > button:nth-child(even){
+    justify-self: start;
+}
+
+.wrapper > button:nth-child(odd){
+    justify-self: end;
 }
 
 .wrapper > button > span {

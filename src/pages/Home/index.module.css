@@ -1,3 +1,23 @@
 .wrapper {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    width: 85dvw;
+    color: var(--fontColor);
+    place-items: center;
+}
+
+.wrapper > button{
+    padding: 5px 5px;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 145px;
+    height: 130px;
+}
+
+.wrapper > button > span {
+    font-size: .8rem;
+    opacity: .7;
 }

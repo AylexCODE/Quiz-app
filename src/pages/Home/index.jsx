@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import HomeStyle from './index.module.css';
 
 import LoadingScreen from '../../components/Loader/LoadingScreen';
+import Border from '../../components/Border.module.css';
 import Nav from '../../components/HeaderNav';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
@@ -49,9 +50,20 @@ function Home(){
             <>
             <Nav />
             <div className={HomeStyle.wrapper}>
-
+                <button className={Border.buttonBorder}>
+                    Multiple Choice
+                    <span>
+                        Everyones favorite type of test
+                    </span>
+                </button>
+                <button className={Border.buttonBorder}>
+                    Two Truths and One Lie
+                    <span>
+                        Identify which one is a lie
+                    </span>
+                </button>
             </div>
-            {logOutButton}
+            {/* {logOutButton} */}
             </>
         ) : (
             <LoadingScreen />

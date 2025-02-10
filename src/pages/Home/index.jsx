@@ -63,7 +63,7 @@ function Home(){
                 </button>
                 <button className={Border.buttonBorder}>
                     <TruthAndLieIcon />
-                    <p>Two Truths and One Lie</p>
+                    <p>2 Truths 1 Lie</p>
                     <span>
                         Identify which one is a lie.
                     </span>

@@ -5,6 +5,10 @@ import HomeStyle from './index.module.css';
 import LoadingScreen from '../../components/Loader/LoadingScreen';
 import Border from '../../components/Border.module.css';
 import Nav from '../../components/HeaderNav';
+import MultipleChoiceIcon from '../../assets/icons/MultipleChoice';
+import TruthAndLieIcon from '../../assets/icons/TruthAndLie';
+import EnumerationIcon from '../../assets/icons/Enumeration';
+import TrueOrFalseIcon from '../../assets/icons/TrueOrFalse';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
@@ -51,25 +55,29 @@ function Home(){
             <Nav />
             <div className={HomeStyle.wrapper}>
                 <button className={Border.buttonBorder}>
-                    Multiple Choice
+                    <MultipleChoiceIcon />
+                    <p>Multiple Choice</p>
                     <span>
                         Everyones favorite type of test.
                     </span>
                 </button>
                 <button className={Border.buttonBorder}>
-                    Two Truths and One Lie
+                    <TruthAndLieIcon />
+                    <p>Two Truths and One Lie</p>
                     <span>
                         Identify which one is a lie.
                     </span>
                 </button>
                 <button className={Border.buttonBorder}>
-                    Enumeration
+                    <EnumerationIcon />
+                    <p>Enumeration</p>
                     <span>
                         Specify the expected number of answers.
                     </span>
                 </button>
                 <button className={Border.buttonBorder}>
-                    True or False
+                    <TrueOrFalseIcon />
+                    <p>True or False</p>
                     <span>
                         Determine whether a statement is correct.
                     </span>

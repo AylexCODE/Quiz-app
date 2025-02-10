@@ -1,6 +1,7 @@
 :root {
     --background: #f8f8f3;
     --border: #000;
+    --iconBorder: #00000030;
     --fontColor: #000;
     --linkColor: #8A05FF;
 }
@@ -8,6 +9,7 @@
 [data-theme="dark"] {
     --background: #123456;
     --border: #f8f8f3;
+    --iconBorder: #f8f8f830;
     --fontColor: #f8f8f3;
     --linkColor: #c582ff;
 }

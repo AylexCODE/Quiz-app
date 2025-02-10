@@ -3,7 +3,7 @@ import './SmallLoader.css';
 
 function SLoader(){
     return (
-        <div class="Sloader"></div>
+        <div className="Sloader"></div>
     )
 }
 

@@ -54,28 +54,28 @@ function Home(){
             <>
             <Nav />
             <div className={HomeStyle.wrapper}>
-                <button className={Border.buttonBorder}>
+                <button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
                     <MultipleChoiceIcon />
                     <p>Multiple Choice</p>
                     <span>
                         Everyones favorite type of test.
                     </span>
                 </button>
-                <button className={Border.buttonBorder}>
+                <button className={Border.buttonBorder} onClick={() => navigate("/TruthAndLie", { replace: true })}>
                     <TruthAndLieIcon />
                     <p>2 Truths 1 Lie</p>
                     <span>
                         Identify which one is a lie.
                     </span>
                 </button>
-                <button className={Border.buttonBorder}>
+                <button className={Border.buttonBorder} onClick={() => navigate("/Enumeration", { replace: true })}>
                     <EnumerationIcon />
                     <p>Enumeration</p>
                     <span>
                         Specify the expected number of answers.
                     </span>
                 </button>
-                <button className={Border.buttonBorder}>
+                <button className={Border.buttonBorder} onClick={() => navigate("/TrueOrFalse", { replace: true })}>
                     <TrueOrFalseIcon />
                     <p>True or False</p>
                     <span>

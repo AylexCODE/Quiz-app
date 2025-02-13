@@ -81,6 +81,10 @@ function Signup(){
 
         if(username.trim() === "" || password.trim() === "" || password2.trim() === ""){
             setErrorMsg("Fill all fields");
+        }else if(/^[A-Za-z]+$/.test(username)){
+            setErrorMsg("Invalid username");
+        }else if(password.length < 6){
+            setErrorMsg("Password is too short");
         }else if(password !== password2){
             setErrorMsg("Passwords does not match");
         }else{

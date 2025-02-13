@@ -3,7 +3,7 @@ import MenuBurgerBar from '../vendor/components/MenuBar'
 
 import { Link, useNavigate } from 'react-router-dom';
 
-import cookieFunctions from './features/cookie/cookie_manager';
+import cookieFunctions from '../features/cookie/cookie_manager';
 
 function Nav(){
     const navigate = useNavigate();

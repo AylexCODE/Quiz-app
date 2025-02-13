@@ -9,10 +9,15 @@ function Nav(){
     const navigate = useNavigate();
 
     async function logOut(){
-        await cookieFunction.removeCookie();
-
-        navigate("/Login", { replace: true });
+        try {
+            await cookieFunction.removeCookie();
+        } catch(noCookie){}
+        navigate("/", { replace: true });
     }
+
+    const LogOutButton = (
+        <button onClick={logOut}>Logout</button>
+    )
 
     return (
         <nav>
@@ -21,7 +26,7 @@ function Nav(){
             </span>
             <span>
                 <MenuBurgerBar />
-                <button onClick={logOut}>Logout</button>
+                <LogOutButton />
             </span>
         </nav>
     );

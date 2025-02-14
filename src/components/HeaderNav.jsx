@@ -10,7 +10,7 @@ function Nav(props){
 
     async function logOut(){
         try {
-            await cookieFunction.removeCookie();
+            await cookieFunctions.removeCookie();
         } catch(noCookie){}
         navigate("/", { replace: true });
     }

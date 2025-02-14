@@ -1,4 +1,4 @@
-import './HeaderNav.css';
+import './HeaderNavStyle.css';
 import MenuBurgerBar from '../vendor/components/MenuBar'
 
 import { Link, useNavigate } from 'react-router-dom';

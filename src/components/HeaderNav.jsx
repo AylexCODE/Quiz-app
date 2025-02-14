@@ -16,7 +16,9 @@ function Nav(){
     }
 
     const LogOutButton = (
+        <>
         <button onClick={logOut}>Logout</button>
+        </>
     )
 
     return (

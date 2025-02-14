@@ -16,9 +16,7 @@ function Nav(){
     }
 
     const LogOutButton = (
-        <>
         <button onClick={logOut}>Logout</button>
-        </>
     )
 
     return (
@@ -28,7 +26,7 @@ function Nav(){
             </span>
             <span>
                 <MenuBurgerBar />
-                <LogOutButton />
+                {LogOutButton}
             </span>
         </nav>
     );

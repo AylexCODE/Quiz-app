@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import cookieFunctions from '../features/cookie/cookie_manager';
 
-function Nav(){
+function Nav(props){
     const navigate = useNavigate();
 
     async function logOut(){
@@ -24,7 +24,7 @@ function Nav(){
     return (
         <nav>
             <span>
-                <p>Logo</p>
+                <p>{props.name_initial}</p>
             </span>
             <span>
                 <MenuBurgerBar />

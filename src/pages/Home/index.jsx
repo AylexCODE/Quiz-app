@@ -15,6 +15,7 @@ import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
 
 function Home(){
     const [isLoading, setIsLoading] = useState(true);
+    const [currentUser, setCurrentUser] = useState("");
 
     const userInfo = useLocation();
     const navigate = useNavigate();
@@ -29,11 +30,13 @@ function Home(){
         setTimeout(() => {
             if(!savedUser){
                 if(userInfo.state){
+                    setCurrentUser(savedUser[0]);
                     setIsLoading(false);
                 }else{
                     navigate("/Login", { replace: true, state: "FromHome" });
                 }
             }else{
+                setCurrentUser(savedUser[0]);
                 setIsLoading(false);
             }
         }, 2000);
@@ -52,7 +55,7 @@ function Home(){
         <main>
         {isLoading === false ? (
             <>
-            <Nav />
+            <Nav name_initial={currentUser} />
             <div className={HomeStyle.wrapper}>
                 <button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
                     <MultipleChoiceIcon />

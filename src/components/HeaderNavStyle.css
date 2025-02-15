@@ -24,12 +24,41 @@ nav > span > input[type="checkbox"] {
     align-items: center;
     height: 16px;
     width: 16px;
+    background-color: var(--background);
     padding: 10px;
     border: .1rem solid var(--fontColor);
     border-radius: .5rem;
     font-size: 1.5em;
+    z-index: 5;
+    transition: scale .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 nav > span > input[type="checkbox"]:checked + .initialName {
-    background-color: red;
+    scale: .7;
+}
+
+nav > span > input[type="checkbox"]:checked + .initialName:before {
+    content: '';
+    position: absolute;
+    border: .1rem solid var(--fontColor);
+    border-radius: .5rem;
+    height: 2.3em;
+    width: 2.3em;
+    z-index: 1;
+    /*scale: 3;*/
+    animation: profileExpand .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes profileExpand {
+    from {
+        /* scale: 0;*/
+        height: 1em;
+        width: 1em;
+        opacity: 0;
+    } to {
+       /* scale: 3;*/
+        height: 2.3em;
+        width: 2.3em;
+        opacity: 1;
+    }
 }

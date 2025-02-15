@@ -79,7 +79,7 @@ form > label, form > button {
     text-wrap: nowrap;
 }
 
-#signup > button, #signup > button > a:visited {
+#signup > button, #signup > button > a:visited, #signup > button > a{
     font-size: 1.8dvh; /* .8rem */
     color: var(--linkColor);
 }

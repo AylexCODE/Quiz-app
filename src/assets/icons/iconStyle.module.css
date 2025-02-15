@@ -3,6 +3,9 @@
     height: 50px;
     border: .1em solid var(--iconBorder);
     border-radius: .5em;
+}
+
+path {
     fill: var(--fontColor);
     stroke: var(--fontColor);
 }

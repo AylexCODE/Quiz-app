@@ -31,7 +31,7 @@ function Home(){
         setTimeout(() => {
             if(!savedUser){
                 savedUser = userInfo.state;
-                if(!savedUser){
+                if(savedUser){
                     setCurrentUser(savedUser[0]);
                     setIsLoading(false);
                 }else{

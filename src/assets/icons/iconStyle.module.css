@@ -6,16 +6,15 @@
 }
 
 path {
-    fill: var(--fontColor);
     stroke: var(--fontColor);
-}
-
-.appLogo > svg{
-    scale: .6;
+    fill: var(--fontColor);
 }
 
 .appLogo {
-    display: flex; flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    display: block;
+}
+
+.appLogo > .diffColor {
+    stroke: var(--background);
+    fill: var(--background);
 }

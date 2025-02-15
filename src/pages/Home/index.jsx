@@ -13,24 +13,26 @@ import TrueOrFalseIcon from '../../assets/icons/TrueOrFalse';
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
 
+function removeSavedAccount(){
+    cookieFunctions.removeCookie();
+    console.log("Cookie Removed!");
+}
+
 function Home(){
     const [isLoading, setIsLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState("");
 
     const userInfo = useLocation();
     const navigate = useNavigate();
-    function removeSavedAccount(){
-        cookieFunctions.removeCookie();
-        console.log("Cookie Removed!");
-    }
     
     async function isLoggedIn(){
-        const savedUser = await cookieFunctions.GetCookie();
+        let savedUser = await cookieFunctions.GetCookie();
         
         setTimeout(() => {
             if(!savedUser){
-                if(userInfo.state){
-                    setCurrentUser(userInfo.state[0]);
+                savedUser = userInfo.state;
+                if(!savedUser){
+                    setCurrentUser(savedUser[0]);
                     setIsLoading(false);
                 }else{
                     navigate("/Login", { replace: true, state: "FromHome" });

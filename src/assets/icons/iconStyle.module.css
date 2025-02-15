@@ -10,6 +10,12 @@ path {
     stroke: var(--fontColor);
 }
 
+.appLogo > svg{
+    scale: .6;
+}
+
 .appLogo {
-    scale: .7;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: left;
 }

@@ -9,3 +9,7 @@ path {
     fill: var(--fontColor);
     stroke: var(--fontColor);
 }
+
+.appLogo {
+    scale: .7;
+}

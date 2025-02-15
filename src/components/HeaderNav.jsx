@@ -1,9 +1,9 @@
 import './HeaderNavStyle.css';
-import MenuBurgerBar from '../vendor/components/MenuBar'
 
 import { Link, useNavigate } from 'react-router-dom';
-
 import cookieFunctions from '../features/cookie/cookie_manager';
+
+import QuizAppLogo from '../assets/icons/QuizAppLogo';
 
 function Nav(props){
     const navigate = useNavigate();
@@ -24,11 +24,10 @@ function Nav(props){
     return (
         <nav>
             <span>
-                <p>{props.name_initial}</p>
+                <p><QuizAppLogo /></p>
             </span>
             <span>
-                <MenuBurgerBar />
-                {LogOutButton}
+                <p>{props.name_initial}</p>
             </span>
         </nav>
     );

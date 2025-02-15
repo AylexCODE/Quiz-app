@@ -30,7 +30,7 @@ function Home(){
         setTimeout(() => {
             if(!savedUser){
                 if(userInfo.state){
-                    setCurrentUser(savedUser[0]);
+                    setCurrentUser(userInfo.state[0]);
                     setIsLoading(false);
                 }else{
                     navigate("/Login", { replace: true, state: "FromHome" });

@@ -1,6 +1,6 @@
 import './HeaderNavStyle.css';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import cookieFunctions from '../features/cookie/cookie_manager';
 
 import QuizAppLogo from '../assets/icons/QuizAppLogo';
@@ -27,7 +27,8 @@ function Nav(props){
                 <p><QuizAppLogo /></p>
             </span>
             <span>
-                <p>{props.name_initial}</p>
+                <input type="checkbox" id="userInitial" onChange={(e) => {console.log("E")}}/>
+                <label className="initialName" htmlFor="userInitial">{props.name_initial}</label>
             </span>
         </nav>
     );

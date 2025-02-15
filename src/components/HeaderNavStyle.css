@@ -13,3 +13,23 @@ nav > span {
     display: block;
     margin: 0px 20px;
 }
+
+nav > span > input[type="checkbox"] {
+    display: none;
+}
+
+.initialName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    width: 16px;
+    padding: 10px;
+    border: .1rem solid var(--fontColor);
+    border-radius: .5rem;
+    font-size: 1.5em;
+}
+
+nav > span > input[type="checkbox"]:checked + .initialName {
+    background-color: red;
+}

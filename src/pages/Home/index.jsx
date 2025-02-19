@@ -10,7 +10,8 @@ import TruthAndLieIcon from '../../assets/icons/TruthAndLie';
 import EnumerationIcon from '../../assets/icons/Enumeration';
 import TrueOrFalseIcon from '../../assets/icons/TrueOrFalse';
 
-import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
+import cookieFunctions from '../../features/cookie/cookie_manager';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Home(){
     const [isLoading, setIsLoading] = useState(true);
@@ -40,13 +41,6 @@ function Home(){
 
     isLoggedIn();
 
-    const logOutButton = (
-        <>
-        <button onClick={removeSavedAccount} ><Link to="/Login" replace>Logout</Link></button>
-        <Outlet />
-        </>
-    );
- 
     return (
         <main>
         {isLoading === false ? (
@@ -82,7 +76,6 @@ function Home(){
                     </span>
                 </button>
             </div>
-            {/* {logOutButton} */}
             </>
         ) : (
             <LoadingScreen />

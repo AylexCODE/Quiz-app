@@ -52,7 +52,7 @@ function Home(){
         <Outlet />
         </>
     );
-
+ 
     return (
         <main>
         {isLoading === false ? (

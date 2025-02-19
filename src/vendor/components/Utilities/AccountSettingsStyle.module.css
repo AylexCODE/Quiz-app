@@ -1,0 +1,11 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}

@@ -26,6 +26,7 @@ function Nav(props){
         <nav>
             <span>
                 <QuizAppLogo />
+                <p>Quiz Master</p>
             </span>
             <span>
                 <input type="checkbox" id="userInitial" onChange={(e) => {console.log("E")}}/>

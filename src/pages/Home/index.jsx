@@ -10,13 +10,7 @@ import TruthAndLieIcon from '../../assets/icons/TruthAndLie';
 import EnumerationIcon from '../../assets/icons/Enumeration';
 import TrueOrFalseIcon from '../../assets/icons/TrueOrFalse';
 
-import cookieFunctions from '../../features/cookie/cookie_manager';
 import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
-
-function removeSavedAccount(){
-    cookieFunctions.removeCookie();
-    console.log("Cookie Removed!");
-}
 
 function Home(){
     const [isLoading, setIsLoading] = useState(true);

@@ -1,8 +1,6 @@
 import './HeaderNavStyle.css';
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import cookieFunctions from '../features/cookie/cookie_manager';
 
 import QuizAppLogo from '../assets/icons/QuizAppLogo';
 import Border from './Border.module.css';
@@ -10,20 +8,6 @@ import AccountSettings from '../vendor/components/Utilities/AccountSettings';
 
 function Nav(props){
     const [ isSettingsOpen, setIsSettingsOpen ] = useState(false);
-    const navigate = useNavigate();
-
-    async function logOut(){
-        try {
-            await cookieFunctions.removeCookie();
-        } catch(noCookie){}
-        navigate("/", { replace: true });
-    }
-
-    const LogOutButton = (
-        <>
-        <button onClick={logOut}>Logout</button>
-        </>
-    )
 
     return (
         <>

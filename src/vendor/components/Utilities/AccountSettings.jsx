@@ -6,21 +6,26 @@ import cookieFunctions from '../../../features/cookie/cookie_manager';
 
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
-function removeSavedAccount(){
-    cookieFunctions.removeCookie();
-    console.log("Logged Out");
+let navigate;
+const logOut = async () => {
+    try {
+        await cookieFunctions.removeCookie();
+    } catch (noCookie){}
+    navigate("", { replace: true });
 }
 
 const logOutButton = (
     <>
-    <button onClick={removeSavedAccount}><Link to="/Login">Logout</Link></button>
+    <button onClick={logOut}><Link to="/Login">Logout</Link></button>
     <Outlet />
     </>
 )
 
 export default function AccountSettings(props) {
+    navigate = useNavigate();
+
     const isVisible = props.isOpen;
 
     return (

@@ -3,6 +3,7 @@ import './HeaderNavStyle.css';
 import React, { useState } from 'react';
 
 import QuizAppLogo from '../assets/icons/QuizAppLogo';
+import BrowserTheme from '../features/themes/theme';
 import Border from './Border.module.css';
 import AccountSettings from '../vendor/components/Utilities/AccountSettings';
 

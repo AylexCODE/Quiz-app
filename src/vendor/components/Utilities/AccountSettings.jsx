@@ -56,6 +56,7 @@ export default function AccountSettings(props) {
                             >
                                 <span>{userName[0]}</span>
                                 <p>{userName}</p>
+                                <Link to="/Account">Account Settings</Link>
                             </motion.div>
                         <motion.ul
                             initial="hidden"

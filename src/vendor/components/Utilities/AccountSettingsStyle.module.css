@@ -5,15 +5,17 @@
 }
 
 .box {
-    width: 200px;
+    width: 200px;/* fit-content; */
     overflow: hidden;
 }
 
 .profileSettings {
     padding: 10px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    border-bottom: .1em solid var(--iconBorder);
 }
 
 .profileSettings > span:nth-child(1) {
@@ -29,15 +31,18 @@
     grid-row: span 2 / span 2;
 }
 
-.profileSetting > p {
+.profileSettings > p {
     color: var(--fontColor);
-    font-size: 1.2em;
+    font-size: 1em;
+    width: 125px;
+    align-self: flex-end;
 }
 
 .profileSettings > a {
     text-decoration: none;
     color: var(--fontColor);
-    font-size: .8em;
+    font-size: .6em;
     grid-column-start: 2;
     grid-row-start: 2;
+    opacity: .7;
 }

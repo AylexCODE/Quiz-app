@@ -43,7 +43,7 @@ export default function AccountSettings(props) {
                 {isVisible ? (
                     <motion.div
                         initial={{ opacity: 0, height: 0, y: -10 }}
-                        animate={{ opacity: 1, height: 100, y: 0 }}
+                        animate={{ opacity: 1, height: 300, y: 0 }}
                         transition={{ duration: 0.3 }}
                         exit={{ opacity: 0, y: -25 }}
                         className={Styling.box +" " +Border.defaultBorder}
@@ -57,6 +57,7 @@ export default function AccountSettings(props) {
                                 <span>{userName[0]}</span>
                                 <p>{userName}</p>
                                 <Link to="/Account">Account Settings</Link>
+                                <Outlet />
                             </motion.div>
                         <motion.ul
                             initial="hidden"

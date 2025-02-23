@@ -10,10 +10,10 @@
 }
 
 .profileSettings {
-    padding: 5px;
+    padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
 }
 
 .profileSettings > span:nth-child(1) {
@@ -26,6 +26,7 @@
     justify-content: center;
     color: var(--background);
     font-size: 1.2em;
+    grid-row: span 2 / span 2;
 }
 
 .profileSetting > p {
@@ -37,4 +38,6 @@
     text-decoration: none;
     color: var(--fontColor);
     font-size: .8em;
+    grid-column-start: 2;
+    grid-row-start: 2;
 }

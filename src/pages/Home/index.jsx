@@ -27,13 +27,13 @@ function Home(){
             if(!savedUser){
                 savedUser = userInfo.state;
                 if(savedUser){
-                    setCurrentUser(savedUser[0]);
+                    setCurrentUser(savedUser);
                     setIsLoading(false);
                 }else{
                     navigate("/Login", { replace: true, state: "FromHome" });
                 }
             }else{
-                setCurrentUser(savedUser[0]);
+                setCurrentUser(savedUser);
                 setIsLoading(false);
             }
         }, 2000);

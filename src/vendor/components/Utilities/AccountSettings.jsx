@@ -19,8 +19,9 @@ const options = {
 
 export default function AccountSettings(props) {
     const navigate = useNavigate();
-
     const isVisible = props.isOpen;
+
+    const userName = props.initialName;
 
     async function logOut(){
         try {
@@ -51,8 +52,10 @@ export default function AccountSettings(props) {
                             initial="hidden"
                             whileInView="visible"
                             variants={{visible: { opacity: 1 }, hidden: { opacity: 0 }}}
+                            className={Styling.profileSettings}
                             >
-                                <span>{props.initialName}</span>
+                                <span>{userName[0]}</span>
+                                <p>{userName}</p>
                             </motion.div>
                         <motion.ul
                             initial="hidden"

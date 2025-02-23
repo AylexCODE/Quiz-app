@@ -5,6 +5,22 @@
 }
 
 .box {
-    width: 100px;
+    width: 200px;
     overflow: hidden;
+}
+
+.profileSettings {
+    padding: 5px;
+}
+
+.profileSettings > span:nth-child(1) {
+    display: flex;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background-color: var(--iconColorGray);
+    align-items: center;
+    justify-content: center;
+    color: var(--background);
+    font-size: 1.2em;
 }

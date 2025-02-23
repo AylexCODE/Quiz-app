@@ -9,6 +9,7 @@ import AccountSettings from '../vendor/components/Utilities/AccountSettings';
 
 function Nav(props){
     const [ isSettingsOpen, setIsSettingsOpen ] = useState(false);
+    const userName = props.name_initial;
 
     return (
         <>
@@ -19,10 +20,10 @@ function Nav(props){
             </span>
             <span>
                 <input type="checkbox" id="userInitial" onChange={(e) => {setIsSettingsOpen(e.target.checked)}}/>
-                <label className={Border.buttonBorder +" initialName"} htmlFor="userInitial">{props.name_initial}</label>
+                <label className={Border.buttonBorder +" initialName"} htmlFor="userInitial">{userName[0]}</label>
             </span>
         </nav>
-        <AccountSettings isOpen={isSettingsOpen} initialName={props.name_initial} />
+        <AccountSettings isOpen={isSettingsOpen} initialName={userName} />
         </>
     );
 }

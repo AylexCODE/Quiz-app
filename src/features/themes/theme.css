@@ -5,6 +5,7 @@
     --fontColor: #000;
     --linkColor: #8A05FF;
     --iconColorGray: #404040;
+    --colorRed: #FF0000;
 }
 
 [data-theme="dark"] {
@@ -14,5 +15,6 @@
     --fontColor: #f8f8f3;
     --linkColor: #c582ff;
     --iconColorGray: #BFBFBF;
+    --colorRed: #FF0000;
 }
 

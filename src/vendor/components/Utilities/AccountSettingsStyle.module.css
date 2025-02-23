@@ -15,7 +15,7 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     column-gap: 10px;
-    border-bottom: .1em solid var(--iconBorder);
+    border-bottom: .1rem solid var(--iconBorder);
 }
 
 .profileSettings > span:nth-child(1) {
@@ -36,6 +36,7 @@
     font-size: 1em;
     width: 125px;
     align-self: flex-end;
+    overflow-x: auto;
 }
 
 .profileSettings > a {
@@ -47,7 +48,18 @@
     opacity: .7;
 }
 
+.logOutBtn {
+    width: 100%;
+    outline: none;
+    border-top: .1rem solid var(--iconBorder);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    padding: 10px;
+    background-color: transparent;
+}
 .logOutBtn > a {
     text-decoration: none;
-    color: var(--fontColor);
+    color: var(--colorRed);
 }

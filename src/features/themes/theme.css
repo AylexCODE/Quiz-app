@@ -4,6 +4,7 @@
     --iconBorder: #00000030;
     --fontColor: #000;
     --linkColor: #8A05FF;
+    --iconColorGray: #404040;
 }
 
 [data-theme="dark"] {
@@ -12,5 +13,6 @@
     --iconBorder: #f8f8f830;
     --fontColor: #f8f8f3;
     --linkColor: #c582ff;
+    --iconColorGray: #BFBFBF;
 }
 

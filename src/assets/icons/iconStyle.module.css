@@ -5,9 +5,9 @@
     border-radius: .5em;
 }
 
-path {
-    stroke: var(--fontColor);
-    fill: var(--fontColor);
+.multipleChoices > path, .trueOrFalse > path, .truthAndLie > path, .enumeration > path {
+    stroke: var(--iconColorGray);
+    fill: var(--iconColorGray);
 }
 
 .appLogo {

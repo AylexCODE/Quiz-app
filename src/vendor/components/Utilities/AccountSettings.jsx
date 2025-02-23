@@ -20,7 +20,7 @@ const options = {
 export default function AccountSettings(props) {
     const navigate = useNavigate();
 
-    const isVisible = props.isOpen || true;
+    const isVisible = props.isOpen;
 
     async function logOut(){
         try {

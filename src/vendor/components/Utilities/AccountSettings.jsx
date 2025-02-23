@@ -46,12 +46,19 @@ export default function AccountSettings(props) {
                         transition={{ duration: 0.3 }}
                         exit={{ opacity: 0, y: -25 }}
                         className={Styling.box +" " +Border.defaultBorder}
-                    >
+                        >
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={{visible: { opacity: 1 }, hidden: { opacity: 0 }}}
+                            >
+                                <span>{props.initialName}</span>
+                            </motion.div>
                         <motion.ul
                             initial="hidden"
                             whileInView="visible"
                             variants={{visible: { opacity: 1 }, hidden: { opacity: 0 }}}
-                        >
+                            >
                             <motion.li custom={1} variants={options}>Yoo</motion.li>
                             <motion.li custom={2} variants={options}>{logOutButton}</motion.li>
                         </motion.ul>

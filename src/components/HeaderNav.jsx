@@ -22,7 +22,7 @@ function Nav(props){
                 <label className={Border.buttonBorder +" initialName"} htmlFor="userInitial">{props.name_initial}</label>
             </span>
         </nav>
-        <AccountSettings isOpen={isSettingsOpen} />
+        <AccountSettings isOpen={isSettingsOpen} initialName={props.name_initial} />
         </>
     );
 }

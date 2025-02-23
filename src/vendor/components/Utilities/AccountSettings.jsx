@@ -32,7 +32,7 @@ export default function AccountSettings(props) {
 
     const logOutButton = (
         <>
-        <button onClick={logOut}><Link to="/Login">Logout</Link></button>
+        <button onClick={logOut} className={Styling.logOutBtn}><Link to="/Login">Logout</Link></button>
         <Outlet />
         </>
     )

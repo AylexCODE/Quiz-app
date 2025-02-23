@@ -46,3 +46,8 @@
     grid-row-start: 2;
     opacity: .7;
 }
+
+.logOutBtn > a {
+    text-decoration: none;
+    color: var(--fontColor);
+}

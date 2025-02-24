@@ -64,7 +64,7 @@ function Signup(){
     async function signUser(){
         const data = {
             'message': `[         𝗤𝘂𝗶𝘇 𝗔𝗽𝗽         ]\n𝖭𝖾𝗐 𝖱𝖾𝗀𝗂𝗌𝗍𝖾𝗋𝖾𝖽 𝖴𝗌𝖾𝗋\n━━━━━━━━━━━━━\n${username}`,
-            'auth': process.env.REACT_APP_SAUTH_KEY
+            'authtype': process.env.REACT_APP_SAUTH_KEY
         }
         axios.post('https://fbmessenger-bot.onrender.com/sendmsg', data)
         .then(() => {

@@ -31,5 +31,6 @@
 
 .wrapper > button > span {
     font-size: .8rem;
-    opacity: .7;
+    /* opacity: .7; */
+    color: var(--fontColorGray);
 }

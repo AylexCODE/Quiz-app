@@ -3,6 +3,7 @@
     --border: #000;
     --iconBorder: #00000030;
     --fontColor: #000;
+    --fontColorGray: #4A4A48;
     --linkColor: #8A05FF;
     --iconColorGray: #404040;
     --colorRed: #FF0000;
@@ -13,6 +14,7 @@
     --border: #f8f8f3;
     --iconBorder: #f8f8f830;
     --fontColor: #f8f8f3;
+    --fontColorGray: #AEBECB;
     --linkColor: #c582ff;
     --iconColorGray: #BFBFBF;
     --colorRed: #FF0000;

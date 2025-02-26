@@ -47,7 +47,10 @@ function Home(){
             <>
             <Nav name_initial={currentUser} />
             <div className={HomeStyle.wrapper}>
-                <button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
+                <button className={Border.buttonBorder}>
+                    <p>Java</p>
+                </button>
+                {/*<button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
                     <MultipleChoiceIcon />
                     <p>Multiple Choice</p>
                     <span>
@@ -74,7 +77,7 @@ function Home(){
                     <span>
                         Determine whether a statement is correct.
                     </span>
-                </button>
+                </button>*/}
             </div>
             </>
         ) : (

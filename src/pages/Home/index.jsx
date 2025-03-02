@@ -62,18 +62,20 @@ function Home(){
                     <>
                     <span>
                         <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
-                            <JavaIcon />
+                            <div className={HomeStyle.placeholderIcon}></div>
                             <p>Java</p>
                         </button>
                     </span>
                     <span>
-                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
-                            <p>Java</p>
+                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("C")}>
+                            <div className={HomeStyle.placeholderIcon}></div>
+                            <p>C</p>
                         </button>
                     </span>
                     <span>
-                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
-                            <p>Java</p>
+                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("MySQL")}>
+                            <div className={HomeStyle.placeholderIcon}></div>
+                            <p>MySQL</p>
                         </button>
                     </span>
                 </> 

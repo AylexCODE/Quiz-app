@@ -10,8 +10,15 @@
 }
 
 .wrapper > span {
-    border: 1px solid black;
     width: 100%;
+}
+
+.wrapper > span > button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 .wrapper > button{
@@ -54,4 +61,11 @@
 
 .optionsInfo > button {
     display: flex;
+}
+
+/* ========= */
+.placeholderIcon {
+    height: 2rem;
+    width: 2rem;
+    background-color: black;
 }

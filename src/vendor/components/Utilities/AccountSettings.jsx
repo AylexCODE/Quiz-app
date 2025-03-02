@@ -63,8 +63,10 @@ export default function AccountSettings(props) {
                             initial="hidden"
                             whileInView="visible"
                             variants={{visible: { opacity: 1 }, hidden: { opacity: 0 }}}
+                            className={Styling.profileOptions}
                             >
-                            <motion.li custom={1} variants={options}>Yoo</motion.li>
+                            <motion.li custom={1} variants={options}>Points</motion.li>
+                            <motion.li custom={2} variants={options}>Inbox</motion.li>
                             <motion.li>{logOutButton}</motion.li>
                         </motion.ul>
                     </motion.div>

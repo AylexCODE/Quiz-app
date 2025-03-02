@@ -50,6 +50,20 @@
     opacity: .7;
 }
 
+.profileOptions > li:first-child {
+    margin-top: 5px;
+}
+
+.profileOptions > li:not(:last-child) {
+    font-size: 1em;
+    padding-block: 5px;
+    padding-inline: 10px;
+}
+
+.profileOptions > li:nth-last-child(2) {
+    margin-bottom: 5px;
+}
+
 .logOutBtn {
     width: 100%;
     outline: none;

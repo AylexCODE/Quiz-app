@@ -9,6 +9,7 @@ import MultipleChoiceIcon from '../../assets/icons/MultipleChoice';
 import TruthAndLieIcon from '../../assets/icons/TruthAndLie';
 import EnumerationIcon from '../../assets/icons/Enumeration';
 import TrueOrFalseIcon from '../../assets/icons/TrueOrFalse';
+import ArrowLeftIcon from '../../assets/icons/ArrowLeft';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -16,7 +17,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 function Home(){
     const [isLoading, setIsLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState("");
-    const [progLaunguage, setProgLanguage] = useState("");
+    const [progLanguage, setProgLanguage] = useState("");
 
     const userInfo = useLocation();
     const navigate = useNavigate();
@@ -48,13 +49,15 @@ function Home(){
             <>
             <Nav name_initial={currentUser} />
             <div className={HomeStyle.optionsInfo}>
-                <p>1/2 : Java</p>
-                <button className={Border.noDesignButton}>
-                    <p></p>
+                <p>Step {progLanguage === "" ? "1" : "2"}/2: {progLanguage}</p>
+                <button className={Border.noDesignButton} onClick={() => setProgLanguage("")}>
+                    {progLanguage === "" ? null : (
+                        <ArrowLeftIcon />
+                    )}
                 </button>
             </div>
             <div className={HomeStyle.wrapper}>
-                {progLaunguage === "" ? (
+                {progLanguage === "" ? (
                     <>
                     <span>
                         <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>

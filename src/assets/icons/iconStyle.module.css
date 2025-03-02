@@ -5,7 +5,7 @@
     border-radius: .5em;
 }
 
-.multipleChoices > path, .trueOrFalse > path, .truthAndLie > path, .enumeration > path {
+.multipleChoices > path, .trueOrFalse > path, .truthAndLie > path, .enumeration > path, .arrowLeft > path {
     stroke: var(--iconColorGray);
     fill: var(--iconColorGray);
 }

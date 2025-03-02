@@ -65,7 +65,7 @@ export default function AccountSettings(props) {
                             variants={{visible: { opacity: 1 }, hidden: { opacity: 0 }}}
                             >
                             <motion.li custom={1} variants={options}>Yoo</motion.li>
-                            <motion.li custom={2} variants={options}>{logOutButton}</motion.li>
+                            <motion.li>{logOutButton}</motion.li>
                         </motion.ul>
                     </motion.div>
                 ) : null}

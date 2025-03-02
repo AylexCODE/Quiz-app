@@ -16,6 +16,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 function Home(){
     const [isLoading, setIsLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState("");
+    const [progLaunguage, setProgLanguage] = useState("");
 
     const userInfo = useLocation();
     const navigate = useNavigate();
@@ -47,37 +48,56 @@ function Home(){
             <>
             <Nav name_initial={currentUser} />
             <div className={HomeStyle.wrapper}>
-                <button className={Border.buttonBorder}>
-                    <p>Java</p>
-                </button>
-                {/*<button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
-                    <MultipleChoiceIcon />
-                    <p>Multiple Choice</p>
+                {progLaunguage === "" ? (
+                    <>
                     <span>
-                        Everyones favorite type of test.
+                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
+                            <p>Java</p>
+                        </button>
                     </span>
-                </button>
-                <button className={Border.buttonBorder} onClick={() => navigate("/TruthAndLie", { replace: true })}>
-                    <TruthAndLieIcon />
-                    <p>2 Truths 1 Lie</p>
                     <span>
-                        Identify which one is a lie.
+                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
+                            <p>Java</p>
+                        </button>
                     </span>
-                </button>
-                <button className={Border.buttonBorder} onClick={() => navigate("/Enumeration", { replace: true })}>
+                    <span>
+                        <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
+                            <p>Java</p>
+                        </button>
+                    </span>
+                </> 
+                ) : (
+                    <>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
+                        <MultipleChoiceIcon />
+                        <p>Multiple Choice</p>
+                        <span>
+                            Everyones favorite type of test.
+                        </span>
+                    </button>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/TruthAndLie", { replace: true })}>
+                        <TruthAndLieIcon />
+                        <p>2 Truths 1 Lie</p>
+                        <span>
+                            Identify which one is a lie.
+                        </span>
+                    </button>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Enumeration", { replace: true })}>
                     <EnumerationIcon />
-                    <p>Enumeration</p>
-                    <span>
-                        Specify the expected number of answers.
-                    </span>
-                </button>
-                <button className={Border.buttonBorder} onClick={() => navigate("/TrueOrFalse", { replace: true })}>
-                    <TrueOrFalseIcon />
-                    <p>True or False</p>
-                    <span>
-                        Determine whether a statement is correct.
-                    </span>
-                </button>*/}
+                        <p>Enumeration</p>
+                        <span>
+                            Specify the expected number of answers.
+                        </span>
+                    </button>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/TrueOrFalse", { replace: true })}>
+                        <TrueOrFalseIcon />
+                        <p>True or False</p>
+                        <span>
+                            Determine whether a statement is correct.
+                        </span>
+                    </button>
+                    </>
+                )}
             </div>
             </>
         ) : (

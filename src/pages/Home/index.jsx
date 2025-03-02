@@ -10,6 +10,7 @@ import TruthAndLieIcon from '../../assets/icons/TruthAndLie';
 import EnumerationIcon from '../../assets/icons/Enumeration';
 import TrueOrFalseIcon from '../../assets/icons/TrueOrFalse';
 import ArrowLeftIcon from '../../assets/icons/ArrowLeft';
+import JavaIcon from '../../assets/icons/JavaIcon';
 
 import cookieFunctions from '../../features/cookie/cookie_manager';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -61,6 +62,7 @@ function Home(){
                     <>
                     <span>
                         <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
+                            <JavaIcon />
                             <p>Java</p>
                         </button>
                     </span>

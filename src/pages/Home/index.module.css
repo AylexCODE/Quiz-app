@@ -1,4 +1,6 @@
 .wrapper {
+    position: relative;
+    bottom: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 7px;
@@ -38,4 +40,14 @@
     font-size: .8rem;
     /* opacity: .7; */
     color: var(--fontColorGray);
+}
+
+.optionsInfo {
+    position: relative;
+    bottom: 1rem;
+    width: 85dvw;
+    color: var(--fontColor);
+    font-size: .7rem;
+    display: flex;
+    justify-content: space-between;
 }

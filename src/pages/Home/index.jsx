@@ -47,6 +47,12 @@ function Home(){
         {isLoading === false ? (
             <>
             <Nav name_initial={currentUser} />
+            <div className={HomeStyle.optionsInfo}>
+                <p>1/2 : Java</p>
+                <button className={Border.noDesignButton}>
+                    <p></p>
+                </button>
+            </div>
             <div className={HomeStyle.wrapper}>
                 {progLaunguage === "" ? (
                     <>

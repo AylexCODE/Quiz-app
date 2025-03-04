@@ -81,28 +81,28 @@ function Home(){
                 </> 
                 ) : (
                     <>
-                    <button className={Border.buttonBorder} onClick={() => navigate("/MultipleChoices", { replace: true })}>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true, state: "MultipleChoice" })}>
                         <MultipleChoiceIcon />
                         <p>Multiple Choice</p>
                         <span>
                             Everyones favorite type of test.
                         </span>
                     </button>
-                    <button className={Border.buttonBorder} onClick={() => navigate("/TruthAndLie", { replace: true })}>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true })}>
                         <TruthAndLieIcon />
                         <p>2 Truths 1 Lie</p>
                         <span>
                             Identify which one is a lie.
                         </span>
                     </button>
-                    <button className={Border.buttonBorder} onClick={() => navigate("/Enumeration", { replace: true })}>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true })}>
                     <EnumerationIcon />
                         <p>Enumeration</p>
                         <span>
                             Specify the expected number of answers.
                         </span>
                     </button>
-                    <button className={Border.buttonBorder} onClick={() => navigate("/TrueOrFalse", { replace: true })}>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true })}>
                         <TrueOrFalseIcon />
                         <p>True or False</p>
                         <span>

@@ -88,14 +88,14 @@ function Home(){
                             Everyones favorite type of test.
                         </span>
                     </button>
-                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true })}>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true, state: "TruthAndLie" })}>
                         <TruthAndLieIcon />
                         <p>2 Truths 1 Lie</p>
                         <span>
                             Identify which one is a lie.
                         </span>
                     </button>
-                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true })}>
+                    <button className={Border.buttonBorder} onClick={() => navigate("/Quiz", { replace: true, state: "Enumeration" })}>
                     <EnumerationIcon />
                         <p>Enumeration</p>
                         <span>

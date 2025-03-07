@@ -62,7 +62,7 @@ function Home(){
                     <>
                     <span>
                         <button className={Border.buttonBorder} onClick={() => setProgLanguage("Java")}>
-                            <div className={HomeStyle.placeholderIcon}></div>
+                            <div className={HomeStyle.placeholderIcon}><JavaIcon /></div>
                             <p>Java</p>
                         </button>
                     </span>

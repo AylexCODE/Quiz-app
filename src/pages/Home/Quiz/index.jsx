@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function QuizOption(){
+function Quiz(){
+    return (
+      <h5>Quiz</h5>
+    )
 }
 
-export default QuizOption;
+export default Quiz;

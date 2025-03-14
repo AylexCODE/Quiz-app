@@ -19,8 +19,13 @@ function Nav(props){
                 <p>Quiz Master</p>
             </span>
             <span>
-                <input type="checkbox" id="userInitial" onChange={(e) => {setIsSettingsOpen(e.target.checked)}}/>
-                <label className={Border.buttonBorder +" initialName"} htmlFor="userInitial">{userName[0]}</label>
+                <span>
+                    <BrowserTheme />
+                </span>
+                <span>
+                    <input type="checkbox" id="userInitial" onChange={(e) => {setIsSettingsOpen(e.target.checked)}}/>
+                    <label className={Border.buttonBorder +" initialName"} htmlFor="userInitial">{userName[0]}</label>
+                </span>
             </span>
         </nav>
         <AccountSettings isOpen={isSettingsOpen} initialName={userName} />

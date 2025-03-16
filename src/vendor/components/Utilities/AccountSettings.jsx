@@ -67,7 +67,8 @@ export default function AccountSettings(props) {
                             >
                             <motion.li custom={1} variants={options}>Points</motion.li>
                             <motion.li custom={2} variants={options}>Inbox</motion.li>
-                            <motion.li custom={3} variants={options}>About</motion.li>
+                            <motion.li custom={3} variants={options}>Tools</motion.li>
+                            <motion.li custom={4} variants={options}>About</motion.li>
                             <motion.li>{logOutButton}</motion.li>
                         </motion.ul>
                     </motion.div>

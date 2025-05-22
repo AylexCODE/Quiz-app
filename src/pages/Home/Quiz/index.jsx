@@ -3,7 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 function Quiz(){
     return (
-      <h5>Choose Subject</h5>
+      <div>
+        <h5>Quiz</h5>
+      </div>
     )
 }
 

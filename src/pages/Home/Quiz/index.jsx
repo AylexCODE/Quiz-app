@@ -5,6 +5,7 @@ function Quiz(){
     return (
       <div>
         <h5>Quiz</h5>
+        <p>Question: </p>
       </div>
     )
 }
